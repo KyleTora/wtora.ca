@@ -1,0 +1,36 @@
+.footer 
+{
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    padding: 10px 0;
+    line-height: 200%;
+
+    .footer-block 
+    {
+        padding: 0 20px;
+        margin: 20px 0;
+
+        .social-icon
+        {
+            padding-right: 10px;
+        }
+    }
+}
+
+.footer h5 
+{
+    color: var(--primary-color);
+}
+
+.footer a 
+{
+    color: var(--white-color);
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer a:hover 
+{
+    color: var(--primary-color);
+    text-decoration: underline;
+}

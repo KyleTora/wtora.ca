@@ -1,0 +1,103 @@
+.contact-container 
+{
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--light-color);
+  padding: 20px;
+  
+  .contact-info {
+    line-height: 200%;
+    margin-bottom: 50px;
+    
+    .social-links {
+      margin-top: 20px;
+    }
+    
+    .social-links a {
+      display: inline-block;
+      margin-right: 10px;
+      text-decoration: none;
+    }
+    
+    .social-links a:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .contact-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    
+    h3
+    {
+      text-align: center;
+    }
+  }
+
+  .form-group {
+    padding-top:30px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  .submit-button
+  {
+      display: block;
+      background-color: var(--primary-color);
+      color: var(--black-color) ;
+      border: 2px solid var(--primary-color);
+      border-radius: 0;
+      text-align: center;
+      font-weight: 600;
+      margin: auto;
+      width: 170px;
+  }
+  
+  .submit-button:hover 
+  {
+      background-color: var(--white-color);
+      color: var(--secondary-color) ;
+      border: 2px solid var(--primary-color);
+  }
+
+  .socials-section 
+  {
+
+    .social-button
+    {
+      font-size: 22px; /* Adjust the font size as needed */
+      filter: drop-shadow(2px 10px 5px rgba(0, 0, 0, 0.4)); /* Adjust the shadow properties as needed */
+
+      .social-icon 
+      {
+        color: var(--dark-color);
+      }
+
+      .social-icon:hover
+      {
+        color: var(--primary-color);
+      }
+    }
+  }
+
+  .message-sent {
+    text-align: center;
+    margin-top: 20px; /* Adjust as needed */
+    font-size: 20px;
+  }
+}

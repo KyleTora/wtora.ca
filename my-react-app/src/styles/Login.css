@@ -1,0 +1,40 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    text-align: center;
+    background-color: var(--white-color);
+
+    .login-form
+    {
+        background-color: var(--light-color);
+        padding: 40px;
+        border-radius: 10px;
+
+        input 
+        {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    
+        button 
+        {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button:hover
+         {
+            background-color: var(--blue-color);
+        }
+    }
+}

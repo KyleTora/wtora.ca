@@ -1,0 +1,122 @@
+.blog-container
+{
+    /* #region HeroSection */
+
+    .hero-image
+    {
+        height: 30vh;
+        display: flex;
+        align-items: center;
+        text-align: center; 
+        background-size: cover; 
+
+        .hero-title
+        {
+            padding: 30px;
+            color: var(--white-color);
+            font-size: 50px;
+        }
+
+        .hero-title::after 
+        {
+            content: '';
+            position: absolute;
+            left: 50%;
+            margin-top: 90px;
+            width: 200px;
+            height: 2px;
+            background-color: var(--primary-color);
+            transform: translateX(-50%);
+        }
+    }
+
+    /* #endregion */
+    
+    /* #region FeaturedPosts */
+
+    .featured-posts
+    {
+        margin: 30px 0;
+
+        .card
+        {
+            margin-top:30px;
+            box-shadow: 2px 8px 8px 2px rgba(0, 0, 0, 0.2); /* Adjust shadow values for hover effect */
+
+            .card-header
+            {
+                border: none;
+
+                .blog-title
+                {
+                    text-align: center;
+                    padding: 10px 0px;
+                    height: 90px;
+                }
+            }
+
+            .card-body
+            {
+                height: 250px;
+                overflow: hidden;
+            }
+
+            .card-footer
+            {
+                text-align: center;
+                border: none;
+                
+                .read-more-link
+                {
+                    border: none;
+                    padding: 8px 16px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    width: 50%;
+                    text-decoration: none;
+                }
+
+                .read-more-link:hover
+                {
+                    text-decoration: underline;
+                }
+
+                .read-more-link-logged-in
+                {
+                    border: none;
+                    padding: 8px 16px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    width: 50%;
+                    text-decoration: none;
+                    float: left;
+                }
+
+                .read-more-link-logged-in:hover
+                {
+                    text-decoration: underline;
+                }
+
+                .delete-button {
+                    background-color: var(--light-color);
+                    color: var(--red-color);;
+                    border: none;
+                    padding: 8px 16px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    width: 30%;
+                    float: right;
+                    text-decoration: none;
+                }
+                
+                .delete-button:hover {
+                    background-color: var(--red-color);
+                    color: var(--light-color);
+                }
+            }
+        }
+    }
+
+    /* #endregion */
+
+}

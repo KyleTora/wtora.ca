@@ -1,0 +1,99 @@
+.blog-post-container
+{
+    .blog-post {
+        margin: 0 auto;
+        padding: 30px 20px 0 0;
+
+        .post-title {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .post-heading
+        {
+            margin: 20px 0;
+            font-size: 20px;
+        }
+
+        .post-body 
+        {
+            margin-top: 30px;
+        }
+
+        .post-date
+        {
+            font-size: 14px;
+        }
+    }
+
+    .featured-posts
+    {
+        margin-top: 40px;
+        margin-bottom: 20px;
+        padding-left: 20px;
+
+        .posts-title
+        {
+            text-align: center;
+        }
+        .card:hover {
+            box-shadow: 8px 8px 8px var(--primary-color); /* Adjust the shadow values for hover effect */
+            
+        }
+        .card
+        {
+            box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3); /* Adjust the shadow values as needed */
+            transition: box-shadow 0.3s ease;
+            margin-top: 40px;
+            border: none;
+            text-decoration: none;
+            
+            .card-header
+            {
+                text-align: center;
+                padding: 10px 10px;
+                border: none;
+
+                .blog-heading{
+                    display: none;
+                }
+                
+            }
+
+            .card-body
+            {
+                overflow: hidden;
+                margin-bottom: 0px;
+                padding-bottom: 0px;
+            }
+
+            .card-footer
+            {
+                text-align: center;
+                border-top: none;
+                background-color: var(--white-color);
+                
+                .read-more-link
+                {
+                    border: none;
+                    padding: 8px 16px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    width: 50%;
+                    text-decoration: none;
+                }
+
+                .read-more-link:hover
+                {
+                    text-decoration: underline;
+                }
+            }
+        }   
+    }
+
+    .loading {
+        text-align: center;
+        font-size: 26px;
+        margin: 50px;
+    }
+}

@@ -1,0 +1,21 @@
+/* colours.css */
+
+:root {
+    /* Define your color variables */
+    --primary-color: #d6a462;
+    --primary-color-light: #d6a4628c;
+    --secondary-color: #8d6229;
+    --third-color: #343a40;
+    --fourth-color: #343a40;
+    --black-color: #000;
+    --white-color: #fff;
+    --green-color: #28a745;
+    --blue-color: #007bff;
+    --red-color: #dc3545;
+    --yellow-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --light-color-darker: #343a4094;
+    --dark-color: #343a40;
+}
+  

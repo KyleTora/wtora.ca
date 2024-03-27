@@ -1,0 +1,162 @@
+/* #region Fade Styling */
+.fade-in-left
+{
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in-left.is-visible 
+{
+  opacity: 1;
+}
+
+/* #endregion */
+
+.capability-container
+{
+  
+  /* #region HeroSection */
+
+    .hero-image {
+      background-size: cover;
+      position: relative;
+    }
+
+   .hero-section
+    {
+      height: 30vh;
+      display: flex;
+      justify-content: center; 
+      align-items: center;
+      text-align: center; 
+      
+      .hero-title
+      {
+          padding: 30px;
+          color: var(--white-color);
+          font-size: 50px;
+      }
+
+      .hero-title::after 
+      {
+        content: '';
+        position: absolute;
+        left: 50%;
+        margin-top: 90px;
+        width: 250px;
+        height: 2px;
+        background-color: var(--primary-color);
+        transform: translateX(-50%);
+      }
+    }
+  
+
+  /* #endregion */
+
+  /* #region HeadingSection */
+
+  .sub-heading
+  {
+    .sub-heading-text
+    {
+      margin: 30px 0;
+      line-height: 200%;
+      text-align: center;
+    }
+    .sub-heading-text::after 
+    {
+      content: '';
+      position: absolute;
+      left: 50%; 
+      margin-top: 70px;
+      width: 50%; 
+      height: 2px;
+      background-color: var(--primary-color);
+      transform: translateX(-50%);
+    }
+  }
+
+  /* #endregion */
+
+  /* #region CategorySection */
+
+  .category-row-left
+  {
+    margin-top: 70px;
+    margin-bottom: 70px;
+    align-items: center;
+
+    @media (max-width: 1023px) 
+    {
+      margin: 20px 0 !important;
+
+      .category-text
+      { 
+        padding: 20px !important;
+
+        .title
+        {
+          text-align: center;
+        }
+      }
+    }
+
+    .category-text
+    {
+      margin: auto;
+      line-height: 200%;
+      padding-right: 60px;
+      
+      .title
+      {
+        margin-bottom: 30px;
+      }
+    }
+
+  }
+
+  .category-row-right
+  {
+    margin-top: 70px;
+    margin-bottom: 70px;
+    align-items: center;
+
+      @media (max-width: 1023px) 
+    {
+      margin: 20px 0 !important;
+      
+      .category-text
+      { 
+        padding: 20px !important;
+
+        .title
+        {
+          text-align: center;
+        }
+      }
+    }
+  
+    .category-text
+    {
+      margin: auto;
+      line-height: 200%;
+      padding-left: 60px;
+
+      .title
+      {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  .category-image 
+  {
+      width: 100%; 
+      object-fit: cover; 
+      border-radius: 8px;
+      margin-bottom: 10px; 
+  }
+
+  /* #endregion */
+
+ }
