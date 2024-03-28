@@ -165,7 +165,7 @@ function HomePage() {
           <div className='row'>
             <div className='section-title'>
               <h2 className='title-text'>What We Do</h2>
-              <h3 className='sub-heading p-2 p-md-0'>Our Consulting Services</h3>
+              <h3 className='sub-heading p-2 p-md-0'>Our Services</h3>
             </div>
           </div>
           <div className='row'>
@@ -193,10 +193,10 @@ function HomePage() {
       </div>
       <div className='container' ref={sectionRefs["third-section"]}>
         <div className='third-section row fade-in-left'>
-          <div className="col-md-5 col-12 image-container d-lg-flex d-none">
+          <div className="col-xl-5 col-12 image-container d-xl-flex d-none">
               <img src={projectM} alt="Project Management Image" className="work-image"/>
           </div>
-          <div className="col-lg-7 col-12 content-section order-lg-2">
+          <div className="col-xl-7 col-12 content-section order-lg-2">
             <div className='section-title'>
               <h2 className='title-text'>Why choose us?</h2>
               <h3 className='sub-heading'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
@@ -209,7 +209,6 @@ function HomePage() {
           </div>
         </div>
       </div>
-      <ContactSection />
       {/* <ContactPage /> */}
       <div className="fourth-section" ref={sectionRefs["fourth-section"]}>
           <div className='container row fade-in-left'>
@@ -236,6 +235,8 @@ function HomePage() {
             </div>
         </div>
       </div>
+      <ContactSection />
+
     </div>
   );
 }

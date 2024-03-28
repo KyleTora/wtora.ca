@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/Contact.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faXTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 function ContactPage() {
@@ -50,10 +50,10 @@ function ContactPage() {
             {/* Social Media Links */}
             <div className="socials-section pt-3">
               <h4>Find us on our socials:</h4>
-              <div className="row mx-auto pt-3">
+              <div className="row pt-3">
                 <div className="col-3 social-button">
-                  <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faInstagram} className='social-icon ' />
+                  <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faLinkedin} className='social-icon ' />
                   </a>
                 </div>
                 <div className="col-3 social-button">

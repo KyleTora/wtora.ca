@@ -168,7 +168,7 @@ transform: scale(1.05);
                     font-weight: 500;
                     padding-top: 30%;
                     transition: transform 0.5s ease; 
-
+                    margin-bottom: 40px;
                     .arrow
                     {
                         color: var(--primary-color);
@@ -231,11 +231,36 @@ transform: scale(1.05);
     
     .third-section
     {
-        background-color: var(--secondary-color);
+        background-color: var(--fourth-color);
         margin: 40px 0 70px 0;
-    
-        @media (min-width: 1800px) 
-        {   
+
+        @media (min-width: 1200px) {
+            @media (max-width: 1550px)
+            {
+                width: 90%;
+                margin-left: 150px;
+                margin-right: -150px;
+
+                .image-container
+                {
+                    margin-left: -15%;
+                }
+
+                .content-section
+                {
+                    margin-left: 150px !important;
+                }
+
+                .work-image 
+                {
+                    width: 130% !important;
+                }
+            }
+        }
+
+        @media (min-width: 1551px) 
+        {            
+            width: 100%; 
             margin-left: 100px;
             margin-right: -200px;
 
@@ -288,7 +313,7 @@ transform: scale(1.05);
 
             .work-button
             {
-                background-color: var(--secondary-color);
+                background-color: var(--fourth-color);
                 color: var(--white-color) ;
                 border: 2px solid var(--white-color);
                 margin: 20px 0;
@@ -297,12 +322,13 @@ transform: scale(1.05);
                 float: left;
                 border-radius: 0;
                 font-weight: 600;
+                transition: background-color 0.5s ease; 
             }
             
-            .work-button:hover 
+            .work-button:hover
             {
                 background-color: var(--white-color);
-                color: var(--secondary-color) ;
+                color: var(--fourth-color) ;
                 border: 2px solid var(--white-color);
             }
         }
@@ -376,24 +402,24 @@ transform: scale(1.05);
             }            
         }
 
-       
         .blog-button
         {
-            background-color: var(--secondary-color);
-            color: var(--white-color) ;
-            border: 2px solid var(--white-color);
+            background-color: var(--white-color);
+            color: var(--secondary-color) ;
+            border: 2px solid var(--secondary-color);
             margin: 20px 0;
             width: 70%;
             max-width: 170px;
             float: left;
             border-radius: 0;
-            font-weight: 600;
+            font-weight: 600;               
+            transition: background-color 0.5s ease; 
         }
         
         .blog-button:hover 
         {
-            background-color: var(--white-color);
-            color: var(--secondary-color) ;
+            background-color: var(--secondary-color);
+            color: var(--white-color) ;
             border: 2px solid var(--secondary-color);
         }
     }

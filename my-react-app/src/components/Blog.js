@@ -103,26 +103,33 @@ function BlogPage() {
             <div className="container">
                 <div className="row featured-posts">
                     {blogPosts.map(post => (
-                        <div className=" col-md-6 col-lg-4 col-12" key={post.id}>
+                        <div className="col-12" key={post.id}>
                             <div className="card">
                                 <div className="card-header">
                                     <h4 className='blog-title'>{post.title}</h4>
                                     <span>{formatDate(post.date)}</span>
                                 </div>
-                                <div className="card-body">
-                                <h5>{post.heading}</h5>
-                                    <p>{truncateText(post.text)}</p>
-                                </div>
-                                <div className="card-footer">
-                                    {authenticated ? (
-                                        <div>
-                                            <Link to={`/blog/${post.id}`} className="read-more-link-logged-in">Read the blog</Link>
-                                            <a onClick={() => handleDelete(post.id)} className="col-2 delete-button">Delete</a>
+                                <div className='card-body'>
+                                    <div className="row">
+                                        <div className='col-md-9 col-12'>
+                                            <h5 >{post.heading}</h5>
+                                            <p>{truncateText(post.text)}</p>
                                         </div>
-                                    ) : (
-                                        <Link to={`/blog/${post.id}`} className="read-more-link">Read the blog</Link>
-                                    )}
-                                 </div>
+                        
+                                        <div className="col-md-3 col-12 m-auto">
+                                            {authenticated ? (
+                                                    <div className="m-auto col-12">
+                                                        <a href={`/blog/${post.id}`} className="btn read-button">Read the blog</a>
+                                                        <a onClick={() => handleDelete(post.id)} className="btn delete-button">Delete</a>
+                                                    </div>
+                                            ) : (
+                                                <div className="m-auto col-12">
+                                                    <a href={`/blog/${post.id}`} className="btn read-button">Read the blog</a>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     ))}

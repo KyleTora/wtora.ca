@@ -1,10 +1,10 @@
 .footer 
 {
-    background-color: var(--dark-color);
+    background-color: var(--black-color);
     color: var(--white-color);
     padding: 10px 0;
-    line-height: 200%;
-
+    line-height:200%;
+    font-weight: 600;
     .footer-block 
     {
         padding: 0 20px;
@@ -19,14 +19,14 @@
 
 .footer h5 
 {
-    color: var(--primary-color);
+    color: var(--white-color);
 }
 
 .footer a 
 {
     color: var(--white-color);
     text-decoration: none;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .footer a:hover 

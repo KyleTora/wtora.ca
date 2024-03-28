@@ -58,31 +58,6 @@ function AboutPage() {
             <p className='who-i-am-text fade-in-left'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla efficitur risus id purus vehicula, sed ultricies elit tristique. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla efficitur risus id purus vehicula, sed ultricies elit tristique.</p>
             <p className='who-i-am-text fade-in-left'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla efficitur risus id purus vehicula, sed ultricies elit tristique. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla efficitur risus id purus vehicula, sed ultricies elit tristique.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla efficitur risus id purus vehicula, sed ultricies elit tristique. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla efficitur risus id purus vehicula, sed ultricies elit tristique.</p>
           </div>
-          
-        </div>
-        <div className="socials-section fade-in-left">
-          <div className="row mx-auto">
-            <div className="col-3 social-button">
-                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faInstagram} className='social-icon ' />
-                </a>
-            </div>
-            <div className="col-3 social-button">
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faXTwitter} className='social-icon ' />
-                </a>
-            </div>
-            <div className="col-3 social-button">
-                <a href="tel:+1234567890">
-                    <FontAwesomeIcon icon={faPhone} className='social-icon ' />
-                </a>
-            </div>
-            <div className="col-3 social-button">
-                <a href="mailto:example@example.com">
-                    <FontAwesomeIcon icon={faEnvelope} className='social-icon ' />
-                </a>
-            </div>
-        </div>
       </div>
      </div>
     <ContactSection />

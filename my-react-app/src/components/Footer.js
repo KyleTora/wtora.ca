@@ -3,7 +3,7 @@ import '../styles/Footer.css';
 import { AuthContext } from './AuthContext'; 
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faXTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -41,19 +41,16 @@ function Footer() {
           </div>
           <div className="footer-block col-md-3 col-6">
             <h5>Contact</h5>
-        
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faInstagram} className='social-icon ' /><span>Twitter</span>
+    
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faLinkedin} className='social-icon ' /><span>LinkedIn</span>
             </a><br />
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faXTwitter} className='social-icon ' /><span>Instagram</span>
-            </a> <br />
-            <a href="tel:+1234567890">
-              <FontAwesomeIcon icon={faPhone} className='social-icon ' /> <span>Phone</span>
-            </a>  <br />
-            <a href="mailto:kyletora1@gmail.com">
+            <a href="mailto:walter.tora@outlook.com">
               <FontAwesomeIcon icon={faEnvelope} className='social-icon ' /><span>Email</span>
-            </a> 
+            </a> <br />
+            <a href="tel:+4163463062">
+              <FontAwesomeIcon icon={faPhone} className='social-icon ' /><span>(416) 346-2035</span>
+            </a>
           </div>
         </div>
       </div>
