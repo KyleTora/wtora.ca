@@ -9,7 +9,7 @@ const initialAuthState = {
 export const AuthContext = createContext(initialAuthState);
 
 export const AuthProvider = ({ children }) => 
-{
+{   
     const [authenticated, setAuthenticated] = useState(
         localStorage.getItem('authenticated') === 'true'
     );

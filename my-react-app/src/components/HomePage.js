@@ -8,19 +8,11 @@ import projectM from '../images/project-management.jpg'
 
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faServer, faDatabase, faDesktop, faListCheck, faLaptopCode, faArrowRight, faArrowDown  } from '@fortawesome/free-solid-svg-icons';
+import { faServer, faDatabase, faDesktop, faListCheck, faLaptopCode, faCircleArrowRight  } from '@fortawesome/free-solid-svg-icons';
 
 
 function HomePage() {
   const [post, setPost] = useState(null);
-
-  const sectionRefs = {
-    "hero": useRef(),
-    "second-section": useRef(),
-    "third-section": useRef(),
-    "fourth-section": useRef(),
-    "contact-section": useRef()
-  };
 
   const items = [
     {
@@ -66,28 +58,6 @@ function HomePage() {
       updatedHoveredStates[index] = false;
       setHoveredStates(updatedHoveredStates);
   };
-  
-  useEffect(() => {
-    const handleIntersection = (entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    };
-
-    const observerLeft = new IntersectionObserver(handleIntersection, {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.3
-    });
-
-    const elementsLeft = document.querySelectorAll('.fade-in-left');
-    elementsLeft.forEach(element => {
-        observerLeft.observe(element);
-    });
-  }, []);
 
   const scrollToSection = (sectionName) => {
     if (sectionRefs[sectionName].current) {
@@ -127,40 +97,20 @@ function HomePage() {
     .catch(error => console.error('Error fetching blog posts:', error));
   }, []);
 
-  //  hero, heroColor, heroTech, heroHex
-
   return (
     <div className="home-container">
-      <div className="hero-image" ref={sectionRefs["hero"]} style={{ backgroundImage: `url(${heroImg})` }}>
+      <div className="hero-image" style={{ backgroundImage: `url(${heroImg})` }}>
         <div className="container">
           <div className="hero-section">
             <div className="hero-text">
-              <h1 className='col-6 col-md-12'>Walter Tora</h1>
-              <h3 className='col-6 col-md-12'>Consulting</h3>
+              <h1 className='col-6 col-md-12'>Website Title</h1>
+              <h3 className='col-6 col-md-12'>Heading</h3>
             </div>
           </div>
         </div>
       </div>
-      {/* Horizontal menu navbar */}
-      <nav className="navbar navbar-expand navbar-light bg-light">
-        <div className="container">
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link className="nav-link" to="#" onClick={() => scrollToSection("second-section")}>Services</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="#" onClick={() => scrollToSection("third-section")}>Experience</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="#" onClick={() => scrollToSection("fourth-section")}>Blog</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
       {/* Sections */}
-      <div className='second-section' ref={sectionRefs["second-section"]}>
+      <div className='second-section'>
         <div className='container'>
           <div className='row'>
             <div className='section-title'>
@@ -179,7 +129,7 @@ function HomePage() {
                   </div>
                   <div className='card-body'>
                     <div className={`categories-text`}>
-                      <p className={item.titleClass}><strong>{item.title}</strong><br></br> <span className='d-none d-lg-block'><FontAwesomeIcon icon={ faArrowRight }
+                      <p className={item.titleClass}><strong>{item.title}</strong><br></br> <span className='d-none d-lg-block'><FontAwesomeIcon icon={ faCircleArrowRight }
                                     className= {hoveredStates[index] ? 'rotate-down arrow' : 'arrow'} /></span></p>
                       <p className="sub-title">{item.subTitle}</p>
                     </div>
@@ -191,7 +141,7 @@ function HomePage() {
           </div>
         </div>
       </div>
-      <div className='container' ref={sectionRefs["third-section"]}>
+      <div className='container'>
         <div className='third-section row fade-in-left'>
           <div className="col-xl-5 col-12 image-container d-xl-flex d-none">
               <img src={projectM} alt="Project Management Image" className="work-image"/>
@@ -210,7 +160,7 @@ function HomePage() {
         </div>
       </div>
       {/* <ContactPage /> */}
-      <div className="fourth-section" ref={sectionRefs["fourth-section"]}>
+      <div className="fourth-section">
           <div className='container row fade-in-left'>
             <div className='section-title'>
               <h2>Latest Blog Post</h2>

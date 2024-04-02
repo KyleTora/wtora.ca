@@ -1,6 +1,5 @@
 .capability-container
 {
-  
   /* #region HeroSection */
 
     .hero-image {
@@ -10,6 +9,7 @@
 
    .hero-section
     {
+      min-height: 30vh;
       height: 30vh;
       display: flex;
       justify-content: center; 
@@ -71,6 +71,7 @@
     margin-top: 70px;
     margin-bottom: 70px;
     align-items: center;
+    min-height: 350px;
 
     @media (max-width: 1023px) 
     {
@@ -92,10 +93,12 @@
       margin: auto;
       line-height: 200%;
       padding-right: 60px;
-      
+      font-weight: 600;
+
       .title
       {
         margin-bottom: 30px;
+        font-weight: 700;
       }
     }
 
@@ -106,6 +109,7 @@
     margin-top: 70px;
     margin-bottom: 70px;
     align-items: center;
+    min-height: 350px;
 
       @media (max-width: 1023px) 
     {
@@ -127,10 +131,12 @@
       margin: auto;
       line-height: 200%;
       padding-left: 60px;
+      font-weight: 600;
 
       .title
       {
         margin-bottom: 30px;
+        font-weight: 700;
       }
     }
   }

@@ -29,7 +29,7 @@ function Capabilities() {
         };
   
         const scrollDistance = element.getBoundingClientRect().top - 100;
-        const startTime = performance.now();
+        const startTime = performance.now() + 200;
         const duration = 500; 
 
         function scrollStep(timestamp) 
@@ -49,29 +49,6 @@ function Capabilities() {
       }
     }
   }, [location.hash]);
-
-  useEffect(() => {
-    const handleIntersection = (entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting)
-        {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    };
-
-    const observerLeft = new IntersectionObserver(handleIntersection, {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    });
-  
-    const elementsLeft = document.querySelectorAll('.fade-in-left');
-    elementsLeft.forEach(element => {
-        observerLeft.observe(element);
-    });
-  }, []);
 
   return (
     <div className="capability-container">

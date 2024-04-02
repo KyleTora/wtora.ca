@@ -1,11 +1,5 @@
 .about-container 
 {
-  .fade-in-left
-  {
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-  }
-
   /* #region HeroSection */
 
   .hero-image

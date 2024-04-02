@@ -9,29 +9,6 @@ import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 
 function AboutPage() {
-
-  useEffect(() => {
-    const handleIntersection = (entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    };
-
-    const observerLeft = new IntersectionObserver(handleIntersection, {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    });
-  
-    const elementsLeft = document.querySelectorAll('.fade-in-left');
-    elementsLeft.forEach(element => {
-        observerLeft.observe(element);
-    });
-  }, []);
-
   return (
     <div className="about-container">
       <div className="hero-image" style={{ backgroundImage: `url(${heroImg})` }}>

@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/NewBlogPost.css';
+import { useAuth } from './AuthContext';
 
 function CreateBlogPost() {
+    const { authenticated } = useAuth();
+
     const [formData, setFormData] = useState({
         title: '',
         heading: '',
@@ -21,24 +24,31 @@ function CreateBlogPost() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        fetch(apiUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        })
-        .then(response => {
-            if (response.ok) {
-                console.log('Blog post created successfully' - JSON.stringify(formData));
-                navigate('/blog');
-            } else {
-                console.error('Failed to create blog post');
-            }
-        })
-        .catch(error => {
-            console.error('Error creating blog post:', error);
-        });
+        if(authenticated)
+        {
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Blog post created successfully' - JSON.stringify(formData));
+                    navigate('/blog');
+                } else {
+                    console.error('Failed to create blog post');
+                }
+            })
+            .catch(error => {
+                console.error('Error creating blog post:', error);
+            });
+        }
+        else
+        {
+            console.log("Error creating blog post (Not Logged In)");
+        }
     };
 
     return (

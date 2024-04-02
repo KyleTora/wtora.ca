@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import '../styles/BlogPost.css';
 import { Link } from 'react-router-dom';
+import ContactSection from './ContactSection';
 
 function BlogPage() {
     const [post, setPost] = useState(null);
@@ -58,40 +59,43 @@ function BlogPage() {
     }
 
     return (
-        <div className='blog-post-container container row'>
-            <div className="blog-post col-lg-9">
-                <h2 className="post-title">{post.title}</h2>
-                <h4 className="post-heading">{post.heading}</h4>
-                <h6 className="post-date">{post.date}</h6>
+        <div className='blog-post-container'>
+            <div className='container row'>
+                <div className="blog-post col-lg-9">
+                    <h2 className="post-title">{post.title}</h2>
+                    <h4 className="post-heading">{post.heading}</h4>
+                    <h6 className="post-date">{post.date}</h6>
 
-                <div className="post-body">
-                    {post.text.map((paragraph, index) => (
-                    <p key={index} className="post-text">{paragraph}</p>
-                ))}        
+                    <div className="post-body">
+                        {post.text.map((paragraph, index) => (
+                        <p key={index} className="post-text">{paragraph}</p>
+                    ))}        
+                    </div>
+                </div>
+                <div className='featured-posts col-lg-3'>
+                    <h3 className='posts-title'>Featured Posts</h3>
+                    {loadingFeaturedPosts ? (
+                        <p>Loading featured posts...</p>
+                    ) : (
+                        featuredPosts.length > 0 ? (
+                            featuredPosts.map(featuredPost => (
+                                <Link to={`/blog/${featuredPost.id}`} className="card" key={featuredPost.id}>
+                                <div className="card-header">
+                                    <h5 className='blog-title'>{featuredPost.title}</h5>
+                                    <span className='blog-heading'>{featuredPost.heading}</span>
+                                </div>
+                                <div className="card-body">
+                                    <p>{featuredPost.heading}</p>
+                                </div>
+                            </Link>
+                            ))
+                        ) : (
+                            <p>No featured posts available</p>
+                        )
+                    )}
                 </div>
             </div>
-            <div className='featured-posts col-lg-3'>
-                <h3 className='posts-title'>Featured Posts</h3>
-                {loadingFeaturedPosts ? (
-                    <p>Loading featured posts...</p>
-                ) : (
-                    featuredPosts.length > 0 ? (
-                        featuredPosts.map(featuredPost => (
-                            <Link to={`/blog/${featuredPost.id}`} className="card" key={featuredPost.id}>
-                            <div className="card-header">
-                                <h5 className='blog-title'>{featuredPost.title}</h5>
-                                <span className='blog-heading'>{featuredPost.heading}</span>
-                            </div>
-                            <div className="card-body">
-                                <p>{featuredPost.heading}</p>
-                            </div>
-                        </Link>
-                        ))
-                    ) : (
-                        <p>No featured posts available</p>
-                    )
-                )}
-            </div>
+            <ContactSection />
         </div>
     );
 }

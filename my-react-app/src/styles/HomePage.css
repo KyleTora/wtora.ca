@@ -3,7 +3,7 @@
 .fade-in-left
 {
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .fade-in-left.is-visible 
@@ -52,40 +52,15 @@ transform: scale(1.05);
             
             .hero-text
             {
+                text-align: center;
                 padding: 20px;
-                color: white;
-                background-color: rgba(255,255,255, 0.2);               
-            }
-        }
-    }
-
-    /* #endregion */
-
-    /* #region SubNavbarSection */
-    .navbar
-    {
-        display: none;
-
-        @media(max-width: 767px)
-        {
-            display: none;
-        }
-
-        .navbar-nav 
-        {
-            li:first-child > .nav-link
-            {
-                padding-left: 2px;
-            }
-
-            .nav-item 
-            {
-                padding-right: 10px;
-            }
-
-            .nav-link:hover 
-            {
-                color: var(--primary-color) ;
+                color: black;
+                background-color: rgba(255,255,255, 0.7);           
+                
+                h1 
+                {
+                    font-weight: 700;
+                }
             }
         }
     }
@@ -132,6 +107,7 @@ transform: scale(1.05);
             border: 2px solid gray;
             transition: border-color 0.3s;
             margin-bottom: 30px;
+            overflow: hidden;
 
             .card-header
             {
@@ -165,7 +141,9 @@ transform: scale(1.05);
 
                     .arrow
                     {
-                        color: var(--primary-color);
+                        color: var(--primary-color);         
+                        font-size: 22px;
+                        margin-top: 10px;
                     }
                     .rotate-down
                     {
@@ -184,6 +162,8 @@ transform: scale(1.05);
                     .arrow
                     {
                         color: var(--primary-color);
+                        font-size: 22px;
+                        margin-top: 10px;
                     }
                     .rotate-down
                     {
@@ -196,6 +176,7 @@ transform: scale(1.05);
                     opacity: 0;
                     transform: translateY(-40%); 
                     transition: opacity 0.5s ease, transform 0.5s ease;
+                    font-weight: 500;
                 }
             }
         }
@@ -211,7 +192,7 @@ transform: scale(1.05);
                 .sub-title 
                 {
                     opacity: 1;
-                    transform: translateY(-100%); 
+                    transform: translateY(-100%);
                 }
 
                 .title-1
