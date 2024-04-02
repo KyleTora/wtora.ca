@@ -1,5 +1,16 @@
 /* #region GlobalVars */
 
+.fade-in-left
+{
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in-left.is-visible 
+{
+  opacity: 1;
+}
+
 .container{
    
     @media (min-width: 1400px) {
@@ -117,7 +128,7 @@ transform: scale(1.05);
         {
             width: 100%;
             border-radius: 0;
-            height: 280px; 
+            height: 290px; 
             border: 2px solid gray;
             transition: border-color 0.3s;
             margin-bottom: 30px;
@@ -148,7 +159,7 @@ transform: scale(1.05);
                 .title-1
                 {
                     font-size: 19px;
-                    font-weight: 00;
+                    font-weight: 500;
                     padding-top: 30%;
                     transition: transform 0.5s ease; 
 
@@ -169,6 +180,7 @@ transform: scale(1.05);
                     padding-top: 30%;
                     transition: transform 0.5s ease; 
                     margin-bottom: 40px;
+
                     .arrow
                     {
                         color: var(--primary-color);
@@ -182,7 +194,7 @@ transform: scale(1.05);
                 .sub-title
                 {
                     opacity: 0;
-                    transform: translateY(-30%); 
+                    transform: translateY(-40%); 
                     transition: opacity 0.5s ease, transform 0.5s ease;
                 }
             }
@@ -199,17 +211,17 @@ transform: scale(1.05);
                 .sub-title 
                 {
                     opacity: 1;
-                    transform: translateY(-80%); 
+                    transform: translateY(-100%); 
                 }
 
                 .title-1
                 {
-                    transform: translateY(-110%); 
+                    transform: translateY(-90%); 
                 }
 
                 .title-2
                 {
-                    transform: translateY(-125%); 
+                    transform: translateY(-110%); 
                 }
 
                 .social-icon

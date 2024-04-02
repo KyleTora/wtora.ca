@@ -135,8 +135,8 @@ function HomePage() {
         <div className="container">
           <div className="hero-section">
             <div className="hero-text">
-              <h1 className='col-6 col-md-12'>Website Title</h1>
-              <h3 className='col-6 col-md-12'>Heading</h3>
+              <h1 className='col-6 col-md-12'>Walter Tora</h1>
+              <h3 className='col-6 col-md-12'>Consulting</h3>
             </div>
           </div>
         </div>
@@ -179,8 +179,8 @@ function HomePage() {
                   </div>
                   <div className='card-body'>
                     <div className={`categories-text`}>
-                      <p className={item.titleClass}><strong>{item.title}</strong>  <FontAwesomeIcon icon={ faArrowRight }
-                                    className={hoveredStates[index] ? 'rotate-down arrow' : 'arrow'} /></p>
+                      <p className={item.titleClass}><strong>{item.title}</strong><br></br> <span className='d-none d-lg-block'><FontAwesomeIcon icon={ faArrowRight }
+                                    className= {hoveredStates[index] ? 'rotate-down arrow' : 'arrow'} /></span></p>
                       <p className="sub-title">{item.subTitle}</p>
                     </div>
                   </div>
