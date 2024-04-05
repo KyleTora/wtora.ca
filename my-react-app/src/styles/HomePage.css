@@ -134,7 +134,7 @@ transform: scale(1.05);
 
                 .title-1
                 {
-                    font-size: 19px;
+                    font-size: 19px ;
                     font-weight: 500;
                     padding-top: 30%;
                     transition: transform 0.5s ease; 
