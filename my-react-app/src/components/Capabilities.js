@@ -3,7 +3,7 @@ import '../styles/Capabilities.css';
 import ContactSection from './ContactSection';
 import software from '../images/software-dev.png'
 import projectM from '../images/project-management.jpg'
-import hero from '../images/hero-image.jpg'
+import hero from '../images/hero-image-dark.jpg'
 import heroHex from '../images/hero-hex.jpg'
 import code from '../images/services-code.jpg'
 import { useLocation } from 'react-router-dom'

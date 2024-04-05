@@ -138,6 +138,11 @@ transform: scale(1.05);
                     font-weight: 500;
                     padding-top: 30%;
                     transition: transform 0.5s ease; 
+                    
+                    @media (max-width: 1399px) {
+                        font-size: 18px;
+                        padding-bottom: 10px;
+                    }
 
                     .arrow
                     {
