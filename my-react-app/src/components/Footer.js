@@ -29,7 +29,7 @@ function Footer() {
                 <Link to="/newBlog" className="">Create Blog</Link>
               </div>
             ) : (
-              <Link to="/login" className="">Login</Link>
+              <Link to="/login" className="">Create Blog</Link>
             )}
           </div>
           <div className="footer-block col-md-3 col-6">

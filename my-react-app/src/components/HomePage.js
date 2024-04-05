@@ -129,7 +129,7 @@ function HomePage() {
                   </div>
                   <div className='card-body'>
                     <div className={`categories-text`}>
-                      <p className={item.titleClass}><strong>{item.title}</strong><br></br> <span className='d-none d-lg-block'><FontAwesomeIcon icon={ faCircleArrowRight }
+                      <p className={item.titleClass}><span className='titleText'><strong>{item.title}</strong></span> <span className='d-none d-lg-block'><FontAwesomeIcon icon={ faCircleArrowRight }
                                     className= {hoveredStates[index] ? 'rotate-down arrow' : 'arrow'} /></span></p>
                       <p className="sub-title">{item.subTitle}</p>
                     </div>

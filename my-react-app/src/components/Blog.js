@@ -115,17 +115,15 @@ function BlogPage() {
                                             <h5 >{post.heading}</h5>
                                             <p>{truncateText(post.text)}</p>
                                         </div>
-                        
-                                        <div className="col-md-3 col-12 m-auto">
+
+                                        <div className="col-md-3 col-12 m-auto blog-button">
                                             {authenticated ? (
-                                                    <div className="m-auto col-12">
-                                                        <a href={`/blog/${post.id}`} className="btn read-button">Read the blog</a>
+                                                    <div >
+                                                        <a href={`/blog/${post.id}`} className="btn read-button">Read the Blog</a>
                                                         <a onClick={() => handleDelete(post.id)} className="btn delete-button">Delete</a>
                                                     </div>
                                             ) : (
-                                                <div className="m-auto col-12">
-                                                    <a href={`/blog/${post.id}`} className="btn read-button">Read the blog</a>
-                                                </div>
+                                                <a href={`/blog/${post.id}`} className="btn read-button">Read the Blog</a>
                                             )}
                                         </div>
                                     </div>

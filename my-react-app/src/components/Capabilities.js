@@ -3,7 +3,7 @@ import '../styles/Capabilities.css';
 import ContactSection from './ContactSection';
 import software from '../images/software-dev.png'
 import projectM from '../images/project-management.jpg'
-import hero from '../images/hero-image-dark.jpg'
+import hero from '../images/hero-image.jpg'
 import heroHex from '../images/hero-hex.jpg'
 import code from '../images/services-code.jpg'
 import { useLocation } from 'react-router-dom'
@@ -29,7 +29,7 @@ function Capabilities() {
         };
   
         const scrollDistance = element.getBoundingClientRect().top - 100;
-        const startTime = performance.now() + 200;
+        const startTime = performance.now();
         const duration = 500; 
 
         function scrollStep(timestamp) 
@@ -70,12 +70,12 @@ function Capabilities() {
                   <p>We provide industry expertise and in-depth ERP vendor knowledge to effectively guide you through an ERP system selection — with the view to maximize your return on investment by focusing on the challenges that are most relevant to your business.</p>
               </div>
               <div className="col-lg-5 col-12 fade-in-left order-lg-2 order-1">
-                  <img src={projectM} alt="ERP Selection Image" className="category-image"/>
+                  <img src={software} alt="ERP Selection Image" className="category-image"/>
               </div>
           </div>
           <div className="row category-row-right" id="program-management">
               <div className="col-lg-5 col-12 fade-in-left order-1">
-                  <img src={software} alt="Program Management Image" className="category-image"/>
+                  <img src={projectM} alt="Program Management Image" className="category-image"/>
               </div>
               <div className="col-lg-7 col-12 category-text fade-in-left order-2">
                   <h2 className="title">Business Transformation and Program Management</h2>
