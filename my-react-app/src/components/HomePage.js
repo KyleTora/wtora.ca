@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/HomePage.css'
 import ContactSection from './ContactSection';
-import ContactPage from './Contact';
 import heroImg from '../images/hero-image-dark.jpg'
 import projectM from '../images/project-management.jpg'
 
@@ -57,12 +56,6 @@ function HomePage() {
       const updatedHoveredStates = [...hoveredStates];
       updatedHoveredStates[index] = false;
       setHoveredStates(updatedHoveredStates);
-  };
-
-  const scrollToSection = (sectionName) => {
-    if (sectionRefs[sectionName].current) {
-      sectionRefs[sectionName].current.scrollIntoView({ behavior: 'smooth' });
-    }
   };
 
   useEffect(() => {
@@ -120,7 +113,7 @@ function HomePage() {
           </div>
           <div className='row'>
             {items.map((item, index) => ( 
-            <div className='col-12 col-md-6 col-lg-3' key={index}>
+            <div className='col-12 col-md-6 col-xl-3' key={index}>
                <Link to={item.link} className='card-link'>
                 <div className='card fade-in-left' onMouseEnter={() => handleMouseEnter(index)}
                                 onMouseLeave={() => handleMouseLeave(index)}>
@@ -129,7 +122,7 @@ function HomePage() {
                   </div>
                   <div className='card-body'>
                     <div className={`categories-text`}>
-                      <p className={item.titleClass}><span className='titleText'><strong>{item.title}</strong></span> <span className='d-none d-lg-block'><FontAwesomeIcon icon={ faCircleArrowRight }
+                      <p className={item.titleClass}><span className='titleText'><strong>{item.title}</strong></span> <span className='d-none d-xl-block'><FontAwesomeIcon icon={ faCircleArrowRight }
                                     className= {hoveredStates[index] ? 'rotate-down arrow' : 'arrow'} /></span></p>
                       <p className="sub-title">{item.subTitle}</p>
                     </div>

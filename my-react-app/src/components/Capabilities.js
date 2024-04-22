@@ -14,38 +14,16 @@ function Capabilities() {
   useEffect(() => {
     const hash = location.hash;
 
-    if (hash) 
-    {
+    if (hash) {
       const id = hash.slice(1);
       const element = document.getElementById(id);
 
-      if (element) 
-      {
-        const scrollOptions = 
-        {
+      if (element) {
+        element.scrollIntoView({
           behavior: 'smooth',
           block: 'start',
           inline: 'nearest'
-        };
-  
-        const scrollDistance = element.getBoundingClientRect().top - 100;
-        const startTime = performance.now();
-        const duration = 500; 
-
-        function scrollStep(timestamp) 
-        {
-          const elapsed = timestamp - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          const easeInOutProgress = 0.5 - Math.cos(progress * Math.PI) / 2;
-          window.scrollTo(0, window.scrollY + scrollDistance * easeInOutProgress);
-
-          if (elapsed < duration) 
-          {
-            requestAnimationFrame(scrollStep);
-          }
-        }
-  
-        requestAnimationFrame(scrollStep);
+        });
       }
     }
   }, [location.hash]);

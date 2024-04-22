@@ -19,7 +19,7 @@ function AboutPage() {
         </div>
       </div>
       <div className='container'>
-        <div className="row col-md-8 mx-auto sub-heading fade-in-left">
+      <div className="row col-lg-8 col-12 mx-auto fade-in-left sub-heading">
           <h5 className='sub-heading-text'><i>Lorem ipsum dolor sit amet, adipiscing elit. Nulla efficitur risus id purus vehicula, sed ultricies elit tristique. Vestibulum hendrerit, tortor eu consectetur feugiat.</i></h5>
         </div>
 

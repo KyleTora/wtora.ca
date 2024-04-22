@@ -48,7 +48,7 @@ function Footer() {
             <a href="mailto:walter.tora@outlook.com">
               <FontAwesomeIcon icon={faEnvelope} className='social-icon ' /><span>Email</span>
             </a> <br />
-            <a href="tel:+4163463062">
+            <a href="tel:+4163462035">
               <FontAwesomeIcon icon={faPhone} className='social-icon ' /><span>(416) 346-2035</span>
             </a>
           </div>

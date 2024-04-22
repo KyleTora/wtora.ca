@@ -15,8 +15,8 @@ function Header() {
           <Nav className="navbar-links">
               <Nav.Link className="navbar-link-buttons" href="/capabilities">Services</Nav.Link>
               {/* <Nav.Link className="navbar-link-buttons" href="/work">Experience</Nav.Link> */}
-              <Nav.Link className="navbar-link-buttons" href="/blog">Blog</Nav.Link>
               <Nav.Link className="navbar-link-buttons" href="/about">About</Nav.Link>
+              <Nav.Link className="navbar-link-buttons" href="/blog">Blog</Nav.Link>
               <Nav.Link href="/contact" className="contact-button">Contact Us</Nav.Link>
           </Nav>
       </Navbar.Collapse>
