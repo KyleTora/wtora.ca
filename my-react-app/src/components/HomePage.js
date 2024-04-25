@@ -1,14 +1,16 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/HomePage.css'
+import '../styles/HomePage.css';
 import ContactSection from './ContactSection';
-import heroImg from '../images/hero-image-dark.jpg'
-import projectM from '../images/project-management.jpg'
-
+import heroImg from '../images/hero-image-dark.jpg';
+import projectM from '../images/project-management.jpg';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faServer, faDatabase, faDesktop, faListCheck, faLaptopCode, faCircleArrowRight  } from '@fortawesome/free-solid-svg-icons';
+import { getFirestore, collection, query, orderBy, limit, getDocs } from 'firebase/firestore';
+import { app } from '../firebase';
 
+const db = getFirestore(app);
 
 function HomePage() {
   const [post, setPost] = useState(null);
@@ -59,35 +61,31 @@ function HomePage() {
   };
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/posts')
-      .then(response => {
-        if (!response.ok) 
-        {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(posts => {
-        const latestPost = posts.reduce((latest, post) => {
-            return latest.date > post.date ? latest : post;
-        });
+    const fetchLatestPost = async () => {
+      const q = query(collection(db, 'blogs'), orderBy('date', 'desc'), limit(1));
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        const latestPost = {
+          id: doc.id,
+          ...doc.data(),
+        };
 
         const paragraphs = latestPost.text.split('\n');
-
         latestPost.text = paragraphs;
 
         const postDate = new Date(latestPost.date);
-
         const formattedDate = postDate.toLocaleDateString('en-US', {
-            month: 'long',
-            day: 'numeric',
-            year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          year: 'numeric',
         });
-        latestPost.date = formattedDate;
 
+        latestPost.date = formattedDate;
         setPost(latestPost);
-    })
-    .catch(error => console.error('Error fetching blog posts:', error));
+      });
+    };
+
+    fetchLatestPost();
   }, []);
 
   return (

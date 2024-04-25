@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/NewBlogPost.css';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { useAuth } from './AuthContext';
+import '../styles/NewBlogPost.css';
+
 
 function CreateBlogPost() {
-    const { authenticated } = useAuth();
+    const { isAuthenticated } = useAuth();
+    const db = getFirestore();
 
     const [formData, setFormData] = useState({
         title: '',
@@ -13,41 +16,27 @@ function CreateBlogPost() {
         date: '',
         isFeatured: false
     });
-    const apiUrl = 'http://localhost:5000/api/posts';
-    const navigate  = useNavigate();
+
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
         setFormData({ ...formData, [e.target.name]: value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
-        if(authenticated)
-        {
-            fetch(apiUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            })
-            .then(response => {
-                if (response.ok) {
-                    console.log('Blog post created successfully' - JSON.stringify(formData));
-                    navigate('/blog');
-                } else {
-                    console.error('Failed to create blog post');
-                }
-            })
-            .catch(error => {
-                console.error('Error creating blog post:', error);
-            });
-        }
-        else
-        {
-            console.log("Error creating blog post (Not Logged In)");
+ 
+        if (isAuthenticated()) {
+            try {
+                const docRef = await addDoc(collection(db, 'blogs'), formData);
+                console.log('Blog post created with ID:', docRef.id);
+                navigate('/blog');
+            } catch (error) {
+                console.error('Error adding blog post:', error);
+            }
+        } else {
+            console.log('User is not authenticated');
         }
     };
 
@@ -61,7 +50,7 @@ function CreateBlogPost() {
                 </div>
                 <div className="form-group">
                     <label>Heading:</label>
-                    <input type="text" name="heading" value={formData.heading} onChange={handleChange} required/>
+                    <input type="text" name="heading" value={formData.heading} onChange={handleChange} required />
                 </div>
                 <div className="form-group">
                     <label>Text:</label>
@@ -69,7 +58,7 @@ function CreateBlogPost() {
                 </div>
                 <div className="form-group">
                     <label>Date:</label>
-                    <input type="date" name="date" value={formData.date} onChange={handleChange} required/>
+                    <input type="date" name="date" value={formData.date} onChange={handleChange} required />
                 </div>
                 <div className="form-group">
                     <label>

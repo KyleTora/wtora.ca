@@ -3,56 +3,59 @@ import { useParams } from 'react-router-dom';
 import '../styles/BlogPost.css';
 import { Link } from 'react-router-dom';
 import ContactSection from './ContactSection';
+import { getFirestore, doc, getDoc, getDocs, collection, query, where } from "firebase/firestore";
+import { app } from '../firebase';
+
+const db = getFirestore(app);
 
 function BlogPage() {
     const [post, setPost] = useState(null);
     const [featuredPosts, setFeaturedPosts] = useState([]);
     const { id } = useParams();
-    const postURL = `http://localhost:5000/api/posts/${id}`;
-    const featuredPostsURL = `http://localhost:5000/api/posts?type=featured`;
     const [loadingFeaturedPosts, setLoadingFeaturedPosts] = useState(true);
 
     useEffect(() => {
-        console.log('Fetching blog post with ID:', id);
-      
-        fetch(postURL)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
+        const fetchBlogPost = async () => {
+            try {
+                const postDoc = await getDoc(doc(db, 'blogs', id));
+                if (postDoc.exists()) {
+                    const postData = postDoc.data();
+                    const paragraphs = postData.text.split('\n');
+                    postData.text = paragraphs;
+                    const postDate = new Date(postData.date);
+                    const formattedDate = postDate.toLocaleDateString('en-US', {
+                        month: 'long',
+                        day: 'numeric',
+                        year: 'numeric',
+                    });
+                    postData.date = formattedDate;
+                    setPost(postData);
+                } else {
+                    console.error('Blog post not found');
                 }
-                return response.json();
-            })
-            .then(data => {
-                // This basically formats the text into paragraphs
-                const paragraphs = data.text.split('\n');
-                data.text = paragraphs;
+            } catch (error) {
+                console.error('Error fetching blog post:', error);
+            }
+        };
 
-                const postDate = new Date(data.date);
-                const formattedDate = postDate.toLocaleDateString('en-US', {
-                    month: 'long',
-                    day: 'numeric',
-                    year: 'numeric',
-                });
-                data.date = formattedDate;
-
-                setPost(data);
-            })
-            .catch(error => console.error('Error fetching blog post:', error));
-
-        fetch(featuredPostsURL)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
+        const fetchFeaturedPosts = async () => {
+            try {
+                const q = query(collection(db, 'blogs'), where('isFeatured', '==', true));
+                const querySnapshot = await getDocs(q);
+                const data = querySnapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }));
                 setFeaturedPosts(data);
-                console.log(data);
                 setLoadingFeaturedPosts(false);
-            })
-            .catch(error => console.error('Error fetching featured posts:', error));
-    }, [id, postURL, featuredPostsURL]);
+            } catch (error) {
+                console.error('Error fetching featured posts:', error);
+            }
+        };
+
+        fetchBlogPost();
+        fetchFeaturedPosts();
+    }, [id]);
 
     if (!post) {
         return <h1 className="loading">Post is not available at this time ...</h1>;
@@ -60,16 +63,22 @@ function BlogPage() {
 
     return (
         <div className='blog-post-container'>
+            <div className='post-banner'>
+                <div className='container'>
+                    <h2 className="post-title">{post.title}</h2>
+                    <h6 className="post-author">Kyle Tora</h6>
+                    <h6 className="post-date">{post.date}</h6>
+                </div>
+            </div>
             <div className='container row'>
                 <div className="blog-post col-lg-9">
-                    <h2 className="post-title">{post.title}</h2>
-                    <h4 className="post-heading">{post.heading}</h4>
-                    <h6 className="post-date">{post.date}</h6>
+                   
+                    <h3 className="post-heading">{post.heading}</h3>
 
                     <div className="post-body">
                         {post.text.map((paragraph, index) => (
-                        <p key={index} className="post-text">{paragraph}</p>
-                    ))}        
+                            <p key={index} dangerouslySetInnerHTML={{ __html: paragraph }}></p>
+                        ))}
                     </div>
                 </div>
                 <div className='featured-posts col-lg-3'>
@@ -80,14 +89,14 @@ function BlogPage() {
                         featuredPosts.length > 0 ? (
                             featuredPosts.map(featuredPost => (
                                 <Link to={`/blog/${featuredPost.id}`} className="card" key={featuredPost.id}>
-                                <div className="card-header">
-                                    <h5 className='blog-title'>{featuredPost.title}</h5>
-                                    <span className='blog-heading'>{featuredPost.heading}</span>
-                                </div>
-                                <div className="card-body">
-                                    <p>{featuredPost.heading}</p>
-                                </div>
-                            </Link>
+                                    <div className="card-header">
+                                        <h5 className='blog-title'>{featuredPost.title}</h5>
+                                        <span className='blog-heading'>{featuredPost.heading}</span>
+                                    </div>
+                                    <div className="card-body">
+                                        <p>{featuredPost.heading}</p>
+                                    </div>
+                                </Link>
                             ))
                         ) : (
                             <p>No featured posts available</p>

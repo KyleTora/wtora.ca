@@ -1,6 +1,7 @@
 .about-container 
 {
   /* #region HeroSection */
+  font-weight: 500;
 
   .hero-image
   {

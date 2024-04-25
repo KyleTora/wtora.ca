@@ -30,7 +30,6 @@ app.get('/api/posts', (req, res) => {
   const { type } = req.query;
   let sqlQuery = 'SELECT * FROM blogs';
 
-  // Check if type is provided and if it's 'featured'
   if (type === 'featured') {
     sqlQuery += ' WHERE isFeatured = 1';
   }

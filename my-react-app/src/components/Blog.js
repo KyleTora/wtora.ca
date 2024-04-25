@@ -3,23 +3,29 @@ import '../styles/Blog.css';
 import ContactSection from './ContactSection';
 import { Link } from 'react-router-dom';
 import { AuthContext } from './AuthContext';
-import heroImg from '../images/background-dark.jpg'
+import heroImg from '../images/background-dark.jpg';
+import { getFirestore, collection, getDocs, doc, deleteDoc } from "firebase/firestore";
+import { app } from '../firebase';
+
+const db = getFirestore(app);
 
 function BlogPage() {
-    const {authenticated} = useContext(AuthContext);
-   
-    // Define state to hold blog posts data
-    const [blogPosts, setBlogPosts] = useState([]);
-    const apiUrl = 'http://localhost:5000/api/posts';
+    const { authenticated } = useContext(AuthContext);
+    const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => setBlogPosts(data))
-            .catch(error => console.error('Error fetching blog posts:', error));
+        const fetchData = async () => {
+            const querySnapshot = await getDocs(collection(db, "blogs"));
+            const data = querySnapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data(),
+            }));
+            setPosts(data);
+        };
+
+        fetchData();
     }, []);
 
-    // Function to truncate text to the first 50 words
     const truncateText = (text) => {
         const words = text.split(' ');
         if (words.length > 50) {
@@ -34,62 +40,24 @@ function BlogPage() {
         return new Date(dateString).toLocaleDateString('en-US', options);
     };
 
-    const onDelete = (postId) => {
-        fetch(`http://localhost:5000/api/posts/${postId}`, {
-            method: 'DELETE',
-        })
-            .then(response => {
-                if (response.ok) {
-                    setBlogPosts(prevPosts => prevPosts.filter(post => post.id !== postId));
-                } else {
-                    console.error('Failed to delete blog post');
+    const handleDelete = async (postId) => {
+        if (authenticated) {
+            const confirmDelete = window.confirm("Are you sure you want to delete this blog post?");
+            
+            if (confirmDelete) {
+                try {
+                    await deleteDoc(doc(db, "blogs", postId));
+                    setPosts(posts.filter(post => post.id !== postId));
+                    console.log("Blog post deleted successfully");
+                } catch (error) {
+                    console.error("Error deleting blog post:", error);
                 }
-            })
-            .catch(error => {
-                console.error('Error deleting blog post:', error);
-            });
-    };
-    
-    const handleDelete = (postId) => {
-        const isConfirmed = window.confirm('Are you sure you want to delete this blog post?');
-        if (isConfirmed) {
-            onDelete(postId);
+            }
+        } else {
+            console.log("User not authenticated. Cannot delete blog post.");
         }
     };
-
-    useEffect(() => {
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                setBlogPosts(data);
-                if (onGetFirstBlog && data.length > 0) {
-                    onGetFirstBlog(data[0]);
-                }
-            })
-            .catch(error => console.error('Error fetching blog posts:', error));
-    }, []);
-
-    useEffect(() => {
-        const handleIntersection = (entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        };
     
-        const observerLeft = new IntersectionObserver(handleIntersection, {
-          root: null,
-          rootMargin: '0px',
-          threshold: 0.1
-        });
-      
-        const elementsLeft = document.querySelectorAll('.fade-in-left');
-        elementsLeft.forEach(element => {
-            observerLeft.observe(element);
-        });
-    }, []);
 
     return (
         <div className="blog-container">
@@ -102,7 +70,7 @@ function BlogPage() {
             </div>
             <div className="container">
                 <div className="row featured-posts">
-                    {blogPosts.map(post => (
+                    {posts.map((post) => (
                         <div className="col-12" key={post.id}>
                             <div className="card">
                                 <div className="card-header">
@@ -112,16 +80,16 @@ function BlogPage() {
                                 <div className='card-body'>
                                     <div className="row">
                                         <div className='col-md-9 col-12'>
-                                            <h5 >{post.heading}</h5>
-                                            <p>{truncateText(post.text)}</p>
+                                            <h5>{post.heading}</h5>
+                                            <div dangerouslySetInnerHTML={{ __html: truncateText(post.text) }}></div>
                                         </div>
 
                                         <div className="col-md-3 col-12 m-auto blog-button">
                                             {authenticated ? (
-                                                    <div >
-                                                        <a href={`/blog/${post.id}`} className="btn read-button">Read the Blog</a>
-                                                        <a onClick={() => handleDelete(post.id)} className="btn delete-button">Delete</a>
-                                                    </div>
+                                                <div>
+                                                    <a href={`/blog/${post.id}`} className="btn read-button">Read the Blog</a>
+                                                    <a onClick={() => handleDelete(post.id)} className="btn delete-button">Delete</a>
+                                                </div>
                                             ) : (
                                                 <a href={`/blog/${post.id}`} className="btn read-button">Read the Blog</a>
                                             )}

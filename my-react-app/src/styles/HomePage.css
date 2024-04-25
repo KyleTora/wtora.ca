@@ -33,6 +33,7 @@ transform: scale(1.05);
 .home-container
 {
     min-height: 100vh;
+    font-weight: 500;
 
     /* #region HeroSection */
 
