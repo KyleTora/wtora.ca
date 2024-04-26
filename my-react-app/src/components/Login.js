@@ -4,15 +4,29 @@ import { useAuth } from './AuthContext';
 import '../styles/Login.css';
 
 function LoginPage() {
-  const { login } = useAuth();
+  const { login, isAuthenticated } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    await login(email, password);
-    navigate('/newBlog');
+    try {
+      await login(email, password);
+      if (authenticated) {
+        navigate('/newBlog');
+      }
+    } catch (error) {
+      console.error('Error logging in:', error);
+    }
   };
+  
+
+  // Redirect if user is already authenticated
+  if (isAuthenticated()) {
+    navigate('/newBlog');
+    return null;
+  }
 
   return (
     <div className="login-container">
@@ -31,6 +45,7 @@ function LoginPage() {
           placeholder="Enter your password"
         />
         <button onClick={handleLogin}>Login</button>
+        {error && <p className="error-message">{error}</p>}
       </div>
     </div>
   );

@@ -90,12 +90,13 @@
                         background-color: var(--red-color);
                         color: var(--white-color) ;
                         float: right;
-                        width: 30%;
+                        width: 35%;
                         max-width: 170px;
                         border: 2px solid var(--red-color);
                         border-radius: 0;
                         font-weight: 600;
                         transition: background-color 0.5s ease; 
+
                     }
                     
                     .delete-button:hover {

@@ -6,8 +6,8 @@ import heroImg from '../images/hero-image-dark.jpg';
 import projectM from '../images/project-management.jpg';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faServer, faDatabase, faDesktop, faListCheck, faLaptopCode, faCircleArrowRight  } from '@fortawesome/free-solid-svg-icons';
-import { getFirestore, collection, query, orderBy, limit, getDocs } from 'firebase/firestore';
+import { faServer, faDatabase, faDesktop, faListCheck, faLaptopCode, faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { getFirestore, collection, doc, getDoc } from 'firebase/firestore';
 import { app } from '../firebase';
 
 const db = getFirestore(app);
@@ -49,25 +49,26 @@ function HomePage() {
   const [hoveredStates, setHoveredStates] = useState(Array(items.length).fill(false));
 
   const handleMouseEnter = (index) => {
-      const updatedHoveredStates = [...hoveredStates];
-      updatedHoveredStates[index] = true;
-      setHoveredStates(updatedHoveredStates);
+    const updatedHoveredStates = [...hoveredStates];
+    updatedHoveredStates[index] = true;
+    setHoveredStates(updatedHoveredStates);
   };
 
   const handleMouseLeave = (index) => {
-      const updatedHoveredStates = [...hoveredStates];
-      updatedHoveredStates[index] = false;
-      setHoveredStates(updatedHoveredStates);
+    const updatedHoveredStates = [...hoveredStates];
+    updatedHoveredStates[index] = false;
+    setHoveredStates(updatedHoveredStates);
   };
 
   useEffect(() => {
-    const fetchLatestPost = async () => {
-      const q = query(collection(db, 'blogs'), orderBy('date', 'desc'), limit(1));
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
+    const fetchLatestPost = async (postId) => {
+      const postRef = doc(db, 'blogs', postId);
+      const docSnap = await getDoc(postRef);
+      
+      if (docSnap.exists()) {
         const latestPost = {
-          id: doc.id,
-          ...doc.data(),
+          id: docSnap.id,
+          ...docSnap.data(),
         };
 
         const paragraphs = latestPost.text.split('\n');
@@ -82,10 +83,12 @@ function HomePage() {
 
         latestPost.date = formattedDate;
         setPost(latestPost);
-      });
+      } else {
+        console.log('No such document!');
+      }
     };
 
-    fetchLatestPost();
+    fetchLatestPost('V5bZuPZZkyGgTjDOAusl');
   }, []);
 
   return (
@@ -110,74 +113,74 @@ function HomePage() {
             </div>
           </div>
           <div className='row'>
-            {items.map((item, index) => ( 
-            <div className='col-12 col-md-6 col-xl-3' key={index}>
-               <Link to={item.link} className='card-link'>
-                <div className='card fade-in-left' onMouseEnter={() => handleMouseEnter(index)}
-                                onMouseLeave={() => handleMouseLeave(index)}>
-                  <div className='card-header'>
+            {items.map((item, index) => (
+              <div className='col-12 col-md-6 col-xl-3' key={index}>
+                <Link to={item.link} className='card-link'>
+                  <div className='card fade-in-left' onMouseEnter={() => handleMouseEnter(index)}
+                    onMouseLeave={() => handleMouseLeave(index)}>
+                    <div className='card-header'>
                       <FontAwesomeIcon icon={item.iconClass} className='social-icon' />
-                  </div>
-                  <div className='card-body'>
-                    <div className={`categories-text`}>
-                      <p className={item.titleClass}><span className='titleText'><strong>{item.title}</strong></span> <span className='d-none d-xl-block'><FontAwesomeIcon icon={ faCircleArrowRight }
-                                    className= {hoveredStates[index] ? 'rotate-down arrow' : 'arrow'} /></span></p>
-                      <p className="sub-title">{item.subTitle}</p>
+                    </div>
+                    <div className='card-body'>
+                      <div className={`categories-text`}>
+                        <p className={item.titleClass}><span className='titleText'><strong>{item.title}</strong></span> <span className='d-none d-xl-block'><FontAwesomeIcon icon={faCircleArrowRight}
+                          className={hoveredStates[index] ? 'rotate-down arrow' : 'arrow'} /></span></p>
+                        <p className="sub-title">{item.subTitle}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
-            </div>
-           ))}
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
       </div>
       <div className='container'>
         <div className='third-section row fade-in-left'>
           <div className="col-xl-5 col-12 image-container d-xl-flex d-none">
-              <img src={projectM} alt="Project Management Image" className="work-image"/>
+            <img src={projectM} alt="Project Management Image" className="work-image" />
           </div>
           <div className="col-xl-7 col-12 content-section order-lg-2">
             <div className='section-title'>
               <h2 className='title-text'>Why choose us?</h2>
               <h3 className='sub-heading'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-            </div>            
+            </div>
             <p className='text-paragraph'><strong>Lorem ipsum dolor</strong> sit amet, consectetur adipiscing elit. Mauris commodo porttitor dolor vel malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris commodo porttitor dolor vel malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris commodo porttitor dolor vel malesuada.</p>
             <p className='text-paragraph'>Lorem ipsum dolor sit amet, <strong>lorem ipsum dolor</strong> Mauris commodo porttitor dolor vel malesuada.</p>
             <div className='text-center fade-in-left'>
               <a href="/about" className="btn work-button">Learn More</a>
-            </div>         
+            </div>
           </div>
         </div>
       </div>
-      {/* <ContactPage /> */}
+      {/* Blog Section */}
       <div className="fourth-section">
-          <div className='container row fade-in-left'>
-            <div className='section-title'>
-              <h2>Latest Blog Post</h2>
-            </div>            
-             <div className="featured-post">
-                {post ? (
-                    <div>
-                        <h3>{post.title}</h3>
-                        <h4>{post.date}</h4>
-                        <div className="post-text-container">
-                            {post.text.map((paragraph, index) => (
-                                <p key={index}>{paragraph}</p>
-                            ))}
-                        </div>
-                    </div>
-                ) : (
-                    <p>Loading latest post...</p>
-                )}
-            </div>
-            <div className='text-center fade-in-left t'>
-              <a href="/blog" className="btn blog-button">Read the Blogs</a>
-            </div>
+        <div className='container row fade-in-left'>
+          <div className='section-title'>
+            <h2>Featured Blog Post</h2>
+          </div>
+          <div className="featured-post">
+            {post ? (
+              <div>
+                <h3>{post.title}</h3>
+                <h5>{post.date}</h5>
+                <div className="post-text-container">
+                  {post.text.map((paragraph, index) => (
+                    <p key={index} dangerouslySetInnerHTML={{ __html: paragraph }} />
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <p>Loading latest post...</p>
+            )}
+          </div>
+          <div className='text-center fade-in-left t'>
+          <a href={`/blog/${post ? post.id : ''}`} className="btn blog-button">Read The Blog</a>
+          </div>
         </div>
       </div>
+      {/* Contact Section */}
       <ContactSection />
-
     </div>
   );
 }

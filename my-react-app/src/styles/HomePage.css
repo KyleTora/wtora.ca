@@ -385,13 +385,20 @@ transform: scale(1.05);
             
             h4 {
                 font-size: 20px;
+                color: black;
+                margin-bottom: 20px;
+                font-weight: bold;
+            }  
+            
+            h5 {
+                font-size: 20px;
                 color: #888;
                 margin-bottom: 20px;
             }
 
             .post-text-container
             {
-                max-height: 300px; /* Set the maximum height */
+                max-height: 32em; /* Set the maximum height */
                 overflow-y: hidden; /* Hide overflow */
             }
 
