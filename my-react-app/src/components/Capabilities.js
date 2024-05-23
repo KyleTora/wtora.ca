@@ -39,7 +39,7 @@ function Capabilities() {
       </div>
         <div className='container'>
           <div className="row col-lg-8 col-12 mx-auto fade-in-left sub-heading">
-            <h5 className='sub-heading-text'><i>Our four key services we provide - Nulla efficitur risus id purus vehicula, sed ultricies elit tristique. Vestibulum hendrerit, tortor eu consectetur feugiat.</i></h5>
+            <h5 className='sub-heading-text'><i>We deliver information technology consulting services to modernize and transform organizational IT systems and infrastructure to improve efficiency and drive profitable growth</i></h5>
           </div>
           <div className="row category-row-left" id="erp-selection">
               <div className="col-lg-7 col-12 category-text fade-in-left order-lg-1 order-2">

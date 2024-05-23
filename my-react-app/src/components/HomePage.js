@@ -19,28 +19,28 @@ function HomePage() {
     {
       title: "ERP Selection and Advisory",
       subTitle: "ERP streamlines business processes to provide a significant competitive advantage. These solutions offer proven, best-practice processes for business functions.",
-      link: "/capabilities#erp-selection",
+      link: "/services#erp-selection",
       iconClass: faDesktop,
       titleClass: "title-1"
     },
     {
       title: "Business Transformation & Program Management",
       subTitle: "We provide a range of consulting, coaching, training, and professional staffing services in Project and Program Management.",
-      link: "/capabilities#program-management",
+      link: "/services#program-management",
       iconClass: faListCheck,
       titleClass: "title-1"
     },
     {
       title: "Data and Analytics",
       subTitle: "Our data and analytics consulting service integrates data from different data sets into a single repository for further data analysis in visualization tools such as Tableau and Power BI.",
-      link: "/capabilities#data-analytics",
+      link: "/services#data-analytics",
       iconClass: faServer,
       titleClass: "title-2"
     },
     {
       title: "Software Development",
       subTitle: "Reinvent your business by enabling technologies and applications to drive new, differentiating solutions to market.",
-      link: "/capabilities#software-development",
+      link: "/services#software-development",
       iconClass: faLaptopCode,
       titleClass: "title-2"
     }
@@ -137,18 +137,17 @@ function HomePage() {
       </div>
       <div className='container'>
         <div className='third-section row fade-in-left'>
-          <div className="col-xl-5 col-12 image-container d-xl-flex d-none">
+          <div className="col-xl-4 col-12 image-container d-xl-flex d-none">
             <img src={projectM} alt="Project Management Image" className="work-image" />
           </div>
           <div className="col-xl-7 col-12 content-section order-lg-2">
             <div className='section-title'>
               <h2 className='title-text'>Why choose us?</h2>
-              <h3 className='sub-heading'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
             </div>
-            <p className='text-paragraph'><strong>Lorem ipsum dolor</strong> sit amet, consectetur adipiscing elit. Mauris commodo porttitor dolor vel malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris commodo porttitor dolor vel malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris commodo porttitor dolor vel malesuada.</p>
-            <p className='text-paragraph'>Lorem ipsum dolor sit amet, <strong>lorem ipsum dolor</strong> Mauris commodo porttitor dolor vel malesuada.</p>
+            <p className='text-paragraph'>We have consulted to many small and mid sized organizations to modernize and transform their IT systems and infrastructure.</p>
+            <p className='text-paragraph'>Our focus is to deliver business value and provide unbiased advice that based on experiences in multiple industries and technology platforms.</p>
             <div className='text-center fade-in-left'>
-              <a href="/about" className="btn work-button">Learn More</a>
+              <a href="/services" className="btn work-button">Learn More</a>
             </div>
           </div>
         </div>

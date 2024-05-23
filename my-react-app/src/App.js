@@ -24,14 +24,14 @@ function App() {
     <Router>
       <Header />
       <Routes>
-          <Route path="/" element={<ComingSoonPage />} />
-          <Route path="/homepage" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/work" element={<WorkPage />} />
+          <Route path="/comingSoon" element={<ComingSoonPage />} />
+          <Route path="/" element={<HomePage />} />
+          {/* <Route path="/about" element={<AboutPage />} /> */}
+          {/* <Route path="/work" element={<WorkPage />} /> */}
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:id" element={<BlogPostPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/capabilities" element={<CapabilitiesPage />} />    
+          <Route path="/services" element={<CapabilitiesPage />} />    
           <Route path="/login" element={<LoginPage />} />
           <Route path="/newBlog" element={<NewBlogPage />} />
         </Routes>      

@@ -20,7 +20,7 @@ function Footer() {
         <div className="row">
           <div className="footer-block col-md-6 col-12">
             <h5>About</h5>
-            <a>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</a>
+            <a>We deliver information technology consulting services to modernize and transform organizational IT systems and infrastructure to improve efficiency and drive profitable growth.</a>
             <br></br>
             {authenticated ? ( 
               <div>
@@ -29,23 +29,23 @@ function Footer() {
                 <Link to="/newBlog" className="">Create Blog</Link>
               </div>
             ) : (
-              <Link to="/login" className="">Login</Link>
+             <></>
             )}
           </div>
           <div className="footer-block col-md-3 col-6">
             <h5>Capabilities</h5>
-            <a href="/capabilities#erp-selection">ERP Selection and Advisory</a><br />
-            <a href="/capabilities#program-management">Business Transformation & Program Management</a><br />
-            <a href="/capabilities#data-analytics">Data and Analytics</a><br />
-            <a href="/capabilities#software-development">Software Development</a>
+            <a href="/services#erp-selection">ERP Selection and Advisory</a><br />
+            <a href="/services#program-management">Business Transformation & Program Management</a><br />
+            <a href="/services#data-analytics">Data and Analytics</a><br />
+            <a href="/services#software-development">Software Development</a>
           </div>
           <div className="footer-block col-md-3 col-6">
             <h5>Contact</h5>
     
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/waltertora" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faLinkedin} className='social-icon ' /><span>LinkedIn</span>
             </a><br />
-            <a href="mailto:walter.tora@outlook.com">
+            <a href="mailto:walter@wtora.ca">
               <FontAwesomeIcon icon={faEnvelope} className='social-icon ' /><span>Email</span>
             </a> <br />
             <a href="tel:+4163462035">
