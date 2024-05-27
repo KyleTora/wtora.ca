@@ -8,16 +8,17 @@ function ContactPage() {
     e.preventDefault();
     
     const form = e.target;
-
+    const formData = new FormData(form);
+  
     try {
       const response = await fetch('https://us-central1-wtora-3b8e4.cloudfunctions.net/sendEmail', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded' // Set the content type to match form data
+          'Content-Type': 'application/json' // Set the content type to JSON
         },
-        body: new FormData(form) // Use FormData directly
+        body: JSON.stringify(Object.fromEntries(formData)) // Stringify form data as JSON
       });
-
+  
       if (response.ok) {
         setMessageSent(true);
         form.reset(); // Reset the form after successful submission
@@ -28,6 +29,8 @@ function ContactPage() {
       console.error('Error sending email:', error);
     }
   };
+  
+  
 
   useEffect(() => {
     document.title = 'Contact';
