@@ -22,7 +22,7 @@ exports.sendEmail = functions.https.onRequest((req, res) => {
       return res.status(400).send('Only POST requests are allowed');
     }
 
-    const { name, email, message } = req.body;
+    const { name, email, message, phone, company } = req.body;
 
     const mailOptions = {
       from: email,
