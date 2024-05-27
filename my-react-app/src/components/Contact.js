@@ -26,7 +26,7 @@ function ContactPage() {
     <div className="contact-container">
       <div className="container row">
       {messageSent && <p className="message-sent">Message sent!</p>}
-        <div className="col-6 mx-auto">
+        <div className="col-12 col-md-6 mx-auto">
           <div className="contact-form mx-auto">
             <h3>Contact Us</h3>
             <form onSubmit={handleSubmit}>

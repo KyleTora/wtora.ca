@@ -97,8 +97,8 @@ function HomePage() {
         <div className="container">
           <div className="hero-section">
             <div className="hero-text">
-              <h1 className='col-6 col-md-12'>Website Title</h1>
-              <h3 className='col-6 col-md-12'>Heading</h3>
+              <h1 className='col-12'>Website Title</h1>
+              <h3 className='col-12'></h3>
             </div>
           </div>
         </div>
