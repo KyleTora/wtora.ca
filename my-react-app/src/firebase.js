@@ -19,4 +19,4 @@ const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const perf = getPerformance(app);
 
-export { app, analytics, auth };
+export { app, analytics, auth, perf };
