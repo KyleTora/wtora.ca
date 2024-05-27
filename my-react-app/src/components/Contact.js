@@ -8,20 +8,19 @@ function ContactPage() {
     e.preventDefault();
     
     const form = e.target;
-    const formData = new FormData(form);
 
     try {
-      const response = await fetch('https://wtora-3b8e4.cloudfunctions.net/sendEmail', {
+      const response = await fetch('https://us-central1-wtora-3b8e4.cloudfunctions.net/sendEmail', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/x-www-form-urlencoded' // Set the content type to match form data
         },
-        body: JSON.stringify(Object.fromEntries(formData))
+        body: new FormData(form) // Use FormData directly
       });
 
       if (response.ok) {
         setMessageSent(true);
-        form.reset(); // Reset the form
+        form.reset(); // Reset the form after successful submission
       } else {
         console.error('Failed to send email');
       }

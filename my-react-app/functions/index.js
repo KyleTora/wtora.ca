@@ -25,7 +25,7 @@ exports.sendEmail = functions.https.onRequest((req, res) => {
     const { name, email, message } = req.body;
 
     const mailOptions = {
-      from: gmailEmail,
+      from: email,
       to: 'kyletora1@gmail.com',
       subject: 'New Message from Contact Form',
       text: `
@@ -35,6 +35,8 @@ exports.sendEmail = functions.https.onRequest((req, res) => {
       `
     };
 
+    console.log(mailOptions);
+    
     try {
       await transporter.sendMail(mailOptions);
       return res.status(200).send('Email sent successfully');
