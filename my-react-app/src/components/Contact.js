@@ -1,40 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Contact.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 function ContactPage() {
-
   const [messageSent, setMessageSent] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     const form = e.target;
     const formData = new FormData(form);
-  
-    const jsonData = {};
-    formData.forEach((value, key) => {
-      jsonData[key] = value;
-    });
-    
-    console.log(jsonData);
-    
+
+    try {
+      const response = await fetch('https://wtora-3b8e4.cloudfunctions.net/sendEmail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(Object.fromEntries(formData))
+      });
+
+      if (response.ok) {
+        setMessageSent(true);
+        form.reset(); // Reset the form
+      } else {
+        console.error('Failed to send email');
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+    }
   };
 
   useEffect(() => {
     document.title = 'Contact';
   }, []);
 
-  
   return (
     <div className="contact-container">
       <div className="container row">
-      {messageSent && <p className="message-sent">Message sent!</p>}
+        {messageSent && <p className="message-sent">Message sent!</p>}
         <div className="col-12 col-md-6 mx-auto">
           <div className="contact-form mx-auto">
-            <h3>Contact Us</h3>
+            <h3 className='contact-title'>Contact Us</h3>
+            <p className='contact-heading'>Fill out the form below to send us an email.</p>
             <form onSubmit={handleSubmit}>
               <div className="form-group row">
                 <div className="col-6">
@@ -52,7 +59,6 @@ function ContactPage() {
                   <input placeholder="Phone" type="text" id="phone" name="phone" />
                 </div>
               </div>
-
               <div className="form-group">
                 <label htmlFor="message">Message*</label>
                 <textarea id="message" name="message" rows="4" required></textarea>

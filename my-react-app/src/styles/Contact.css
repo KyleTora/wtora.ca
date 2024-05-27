@@ -30,14 +30,14 @@
     border-radius: 20px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     
-    h3
+    .contact-title, .contact-heading
     {
       text-align: center;
     }
   }
 
   .form-group {
-    padding-top:30px;
+    padding-top:20px;
   }
 
   label {

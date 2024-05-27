@@ -62,7 +62,7 @@ function HomePage() {
 
   useEffect(() => {
     document.title = "Home";
-    
+
     const fetchLatestPost = async (postId) => {
       const postRef = doc(db, 'blogs', postId);
       const docSnap = await getDoc(postRef);
@@ -99,7 +99,7 @@ function HomePage() {
         <div className="container">
           <div className="hero-section">
             <div className="hero-text">
-              <h1 className='col-12'>Website Title</h1>
+              <h1 className='col-12'>Walter Tora Consulting</h1>
               <h3 className='col-12'></h3>
             </div>
           </div>
@@ -154,6 +154,8 @@ function HomePage() {
           </div>
         </div>
       </div>
+            {/* Contact Section */}
+            <ContactSection />
       {/* Blog Section */}
       <div className="fourth-section">
         <div className='container row fade-in-left'>
@@ -180,8 +182,7 @@ function HomePage() {
           </div>
         </div>
       </div>
-      {/* Contact Section */}
-      <ContactSection />
+
     </div>
   );
 }
