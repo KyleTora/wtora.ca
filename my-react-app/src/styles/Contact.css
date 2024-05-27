@@ -58,9 +58,9 @@
   .submit-button
   {
       display: block;
-      background-color: var(--secondary-color);
+      background-color: var(--primary-color);
       color: var(--white-color) ;
-      border: 2px solid var(--secondary-color);
+      border: 2px solid var(--primary-color);
       border-radius: 0;
       text-align: center;
       font-weight: 600;
@@ -71,33 +71,13 @@
   .submit-button:hover 
   {
       background-color: var(--white-color);
-      color: var(--secondary-color) ;
-      border: 2px solid var(--secondary-color);
-  }
-
-  .socials-section 
-  {
-
-    .social-button
-    {
-      font-size: 22px; /* Adjust the font size as needed */
-      filter: drop-shadow(2px 10px 5px rgba(0, 0, 0, 0.4)); /* Adjust the shadow properties as needed */
-
-      .social-icon 
-      {
-        color: var(--dark-color);
-      }
-
-      .social-icon:hover
-      {
-        color: var(--secondary-color);
-      }
-    }
+      color: var(--primary-color) ;
+      border: 2px solid var(--primary-color);
   }
 
   .message-sent {
     text-align: center;
-    margin-top: 20px; /* Adjust as needed */
+    margin-top: 20px;
     font-size: 20px;
   }
 }

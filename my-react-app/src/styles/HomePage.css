@@ -242,7 +242,7 @@ transform: scale(1.05);
 
                 .image-container
                 {
-                    margin-left: -15%;
+                    margin-left: -10%;
                 }
 
                 .content-section
@@ -252,7 +252,7 @@ transform: scale(1.05);
 
                 .work-image 
                 {
-                    width: 130% !important;
+                    width: 150% !important;
                 }
             }
         }
