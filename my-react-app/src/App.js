@@ -10,10 +10,10 @@ import ContactPage from './components/Contact';
 import CapabilitiesPage from './components/Capabilities';
 import NewBlogPage from './components/CreateBlogPost';
 import LoginPage from './components/Login';
-import { app } from './firebase'; // Update this line
+import { app } from './firebase'; 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import { getAuth } from 'firebase/auth'; // Import getAuth from the correct module
+import { getAuth } from 'firebase/auth'; 
 import { AuthProvider } from './components/AuthContext';
 
 const auth = getAuth(app);

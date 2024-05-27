@@ -12,6 +12,8 @@ function Capabilities() {
   const location = useLocation();
 
   useEffect(() => {
+    document.title = 'Services';
+    
     const hash = location.hash;
 
     if (hash) {

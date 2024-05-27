@@ -14,6 +14,8 @@ function BlogPage() {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
+        document.title = 'Blog';
+        
         const fetchData = async () => {
             const querySnapshot = await getDocs(collection(db, "blogs"));
             const data = querySnapshot.docs.map((doc) => ({

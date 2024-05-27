@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Contact.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 function ContactPage() {
+
   const [messageSent, setMessageSent] = useState(false);
 
   const handleSubmit = (e) => {
@@ -21,6 +22,11 @@ function ContactPage() {
     console.log(jsonData);
     
   };
+
+  useEffect(() => {
+    document.title = 'Contact';
+  }, []);
+
   
   return (
     <div className="contact-container">

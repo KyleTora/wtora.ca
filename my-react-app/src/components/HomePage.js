@@ -61,6 +61,8 @@ function HomePage() {
   };
 
   useEffect(() => {
+    document.title = "Home";
+    
     const fetchLatestPost = async (postId) => {
       const postRef = doc(db, 'blogs', postId);
       const docSnap = await getDoc(postRef);
