@@ -28,7 +28,7 @@ exports.sendEmail = functions.https.onRequest((req, res) => {
       from: email,
       to: gmailEmail,
       subject: 'New Message from WTora.ca Contact Form',
-      text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nCompany: ${company}\nEmail Body: \n${message}`
+      text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nCompany: ${company}\n\nEmail Body: \n\n${message}`
     };
 
 

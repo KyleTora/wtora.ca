@@ -30,6 +30,7 @@ function BlogPage() {
                     });
                     postData.date = formattedDate;
                     setPost(postData);
+                    document.title = postData.title;
                 } else {
                     console.error('Blog post not found');
                 }
