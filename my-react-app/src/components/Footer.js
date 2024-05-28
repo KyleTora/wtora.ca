@@ -18,7 +18,7 @@ function Footer() {
     <footer className="footer">
       <div className="container">
         <div className="row">
-          <div className="footer-block col-md-6 col-12">
+          <div className="footer-block col-lg-6 col-12">
             <h4 className='footer-title'>About</h4>
             <a>We deliver information technology consulting services to modernize and transform organizational IT systems and infrastructure to improve efficiency and drive profitable growth.</a>
             <br></br>
@@ -32,14 +32,14 @@ function Footer() {
              <></>
             )}
           </div>
-          <div className="footer-block col-md-3 col-6">
+          <div className="footer-block col-md-6 col-lg-3 col-12">
             <h4 className='footer-title'>Services</h4>
-            <a href="/services#erp-selection"><FontAwesomeIcon icon={faCircle} className='social-icon fa-xs' /><span>ERP Selection & Advisory</span></a><br />
-            <a href="/services#program-management"><FontAwesomeIcon icon={faCircle} className='social-icon fa-xs' /><span>Business Transformation & Program Management</span></a><br />
-            <a href="/services#data-analytics"><FontAwesomeIcon icon={faCircle} className='social-icon fa-xs' /><span>Data & Analytics</span></a><br />
-            <a href="/services#software-development"><FontAwesomeIcon icon={faCircle} className='social-icon fa-xs' /><span>Software Development</span></a>
+            <a href="/services#erp-selection"><FontAwesomeIcon icon={faCircle} className='social-icon fa-2xs' /><span>ERP Selection & Advisory</span></a><br />
+            <a href="/services#program-management"><FontAwesomeIcon icon={faCircle} className='social-icon fa-2xs' /><span>Business Transformation & Program Management</span></a><br />
+            <a href="/services#data-analytics"><FontAwesomeIcon icon={faCircle} className='social-icon fa-2xs' /><span>Data & Analytics</span></a><br />
+            <a href="/services#software-development"><FontAwesomeIcon icon={faCircle} className='social-icon fa-2xs' /><span>Software Development</span></a>
           </div>
-          <div className="footer-block col-md-3 col-6">
+          <div className="footer-block col-md-6 col-lg-3 col-12">
             <h4 className='footer-title'>Contact</h4>
     
             <a href="https://www.linkedin.com/in/waltertora" target="_blank" rel="noopener noreferrer">

@@ -124,6 +124,15 @@ transform: scale(1.05);
                     transition: opacity 0.3s ease;
                     color: var(--primary-color);
                 }
+
+                @media(max-width: 1199px)
+                {
+                    .social-icon
+                    {
+                        font-size: 4em;
+                        margin-bottom: 0px;
+                    }
+                }
             }
 
             .card-body
@@ -143,6 +152,11 @@ transform: scale(1.05);
                     @media (max-width: 1399px) {
                         font-size: 18px;
                         padding-bottom: 10px;
+                    }
+
+                    @media (max-width: 1199px) {
+                        font-size: 24px;
+                        padding-top: 20%;
                     }
 
                     .arrow
@@ -165,6 +179,11 @@ transform: scale(1.05);
                     transition: transform 0.5s ease; 
                     margin-bottom: 40px;
 
+                    @media (max-width: 1199px) {
+                        font-size: 24px;
+                        padding-top: 20%;
+                    }
+                    
                     .arrow
                     {
                         color: var(--primary-color);
