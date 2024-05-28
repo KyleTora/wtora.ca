@@ -3,8 +3,9 @@
     background-color: var(--black-color);
     color: var(--white-color);
     padding: 10px 0;
-    line-height:200%;
+    line-height: 200%;
     font-weight: 600;
+
     .footer-block 
     {
         padding: 0 20px;
@@ -17,7 +18,7 @@
     }
 }
 
-.footer h5 
+.footer .footer-title 
 {
     color: var(--white-color);
 }
