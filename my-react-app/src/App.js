@@ -4,8 +4,6 @@ import ComingSoonPage from './components/ComingSoonPage';
 import HomePage from './components/HomePage';
 import BlogPage from './components/Blog';
 import BlogPostPage from './components/BlogPage';
-import AboutPage from './components/About';
-import WorkPage from './components/Work';
 import ContactPage from './components/Contact';
 import CapabilitiesPage from './components/Capabilities';
 import NewBlogPage from './components/CreateBlogPost';
@@ -26,8 +24,6 @@ function App() {
       <Routes>
           <Route path="/comingSoon" element={<ComingSoonPage />} />
           <Route path="/" element={<HomePage />} />
-          {/* <Route path="/about" element={<AboutPage />} /> */}
-          {/* <Route path="/work" element={<WorkPage />} /> */}
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:id" element={<BlogPostPage />} />
           <Route path="/contact" element={<ContactPage />} />
