@@ -14,14 +14,14 @@ function ContactPage() {
       const response = await fetch('https://us-central1-wtora-3b8e4.cloudfunctions.net/sendEmail', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json' // Set the content type to JSON
+          'Content-Type': 'application/json' 
         },
-        body: JSON.stringify(Object.fromEntries(formData)) // Stringify form data as JSON
+        body: JSON.stringify(Object.fromEntries(formData))
       });
   
       if (response.ok) {
         setMessageSent(true);
-        form.reset(); // Reset the form after successful submission
+        form.reset(); 
       } else {
         console.error('Failed to send email');
       }
@@ -39,7 +39,7 @@ function ContactPage() {
   return (
     <div className="contact-container">
       <div className="container row">
-        {messageSent && <p className="message-sent">Message sent!</p>}
+      {messageSent && <p className="message-sent">Email has been sent!</p>}
         <div className="col-12 col-md-6 mx-auto">
           <div className="contact-form mx-auto">
             <h3 className='contact-title'>Contact Us</h3>

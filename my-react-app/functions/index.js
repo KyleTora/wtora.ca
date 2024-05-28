@@ -1,7 +1,7 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const nodemailer = require('nodemailer');
-const cors = require('cors')({ origin: true }); // Enable CORS for all origins
+const cors = require('cors')({ origin: true });
 
 admin.initializeApp();
 
@@ -27,14 +27,8 @@ exports.sendEmail = functions.https.onRequest((req, res) => {
     const mailOptions = {
       from: email,
       to: gmailEmail,
-      subject: 'New Message from Contact Form',
-      text: `
-        Name: ${name}\n
-        Email: ${email}\n
-        Phone: ${phone}\n
-        Company: ${company}\n\n
-        Message Body: ${message}
-      `
+      subject: 'New Message from WTora.ca Contact Form',
+      text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nCompany: ${company}\nEmail Body: \n${message}`
     };
 
 
