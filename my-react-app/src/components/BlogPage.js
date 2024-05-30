@@ -59,7 +59,16 @@ function BlogPage() {
     }, [id]);
 
     if (!post) {
-        return <h1 className="loading">Post is not available at this time ...</h1>;
+
+        return (
+            <div className='blog-post-container'>
+                <div className='post-banner'>
+                    <div className='container'>
+                        <h1 className="loading">Post is not available at this time ...</h1>
+                    </div>
+                </div>
+            </div>
+        );
     }
 
     return (

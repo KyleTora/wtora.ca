@@ -13,6 +13,8 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { getAuth } from 'firebase/auth'; 
 import { AuthProvider } from './components/AuthContext';
+import NotFoundPage from './components/NotFoundPage';
+
 
 const auth = getAuth(app);
 
@@ -30,6 +32,7 @@ function App() {
           <Route path="/services" element={<CapabilitiesPage />} />    
           <Route path="/login" element={<LoginPage />} />
           <Route path="/newBlog" element={<NewBlogPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>      
         <Footer />
     </Router>
