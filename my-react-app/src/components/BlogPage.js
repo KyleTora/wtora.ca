@@ -76,15 +76,12 @@ function BlogPage() {
             <div className='post-banner'>
                 <div className='container'>
                     <h2 className="post-title">{post.title}</h2>
-                    <h6 className="post-author">Kyle Tora</h6>
                     <h6 className="post-date">{post.date}</h6>
                 </div>
             </div>
             <div className='container row'>
                 <div className="blog-post col-lg-9">
-                   
                     <h3 className="post-heading">{post.heading}</h3>
-
                     <div className="post-body">
                         {post.text.map((paragraph, index) => (
                             <p key={index} dangerouslySetInnerHTML={{ __html: paragraph }}></p>
