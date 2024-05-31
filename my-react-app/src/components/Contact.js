@@ -29,8 +29,6 @@ function ContactPage() {
       console.error('Error sending email:', error);
     }
   };
-  
-  
 
   useEffect(() => {
     document.title = 'Contact';

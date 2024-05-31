@@ -2,10 +2,9 @@ import React, { useEffect } from 'react';
 
 function NotFoundPage() {
     useEffect(() => {
-        document.title = "404";
+        document.title = "404 Page";
 
     }, []);
-
     
     return (
     <div className='container'>

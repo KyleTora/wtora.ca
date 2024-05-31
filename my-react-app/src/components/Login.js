@@ -21,8 +21,6 @@ function LoginPage() {
     }
   };
   
-
-  // Redirect if user is already authenticated
   if (isAuthenticated()) {
     navigate('/newBlog');
     return null;

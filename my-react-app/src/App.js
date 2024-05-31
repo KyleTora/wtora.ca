@@ -15,7 +15,6 @@ import { getAuth } from 'firebase/auth';
 import { AuthProvider } from './components/AuthContext';
 import NotFoundPage from './components/NotFoundPage';
 
-
 const auth = getAuth(app);
 
 function App() {

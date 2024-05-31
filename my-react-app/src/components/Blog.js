@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import '../styles/Blog.css';
 import ContactSection from './ContactSection';
-import { Link } from 'react-router-dom';
 import { AuthContext } from './AuthContext';
 import heroImg from '../images/background-dark.jpg';
 import { getFirestore, collection, getDocs, doc, deleteDoc } from "firebase/firestore";

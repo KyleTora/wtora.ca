@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useEffect } from 'react';
 import '../styles/ContactSection.css'; 
-
 
 function ContactSection(){
     useEffect(() => {

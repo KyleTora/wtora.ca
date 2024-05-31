@@ -90,6 +90,7 @@ function HomePage() {
       }
     };
 
+    // update later - so it grabs the latest one.
     fetchLatestPost('V5bZuPZZkyGgTjDOAusl');
   }, []);
 
@@ -154,8 +155,8 @@ function HomePage() {
           </div>
         </div>
       </div>
-            {/* Contact Section */}
-            <ContactSection />
+      {/* Contact Section */}
+      <ContactSection />
       {/* Blog Section */}
       <div className="fourth-section">
         <div className='container row fade-in-left'>

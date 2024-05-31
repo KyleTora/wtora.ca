@@ -19,7 +19,7 @@
     
 }
 
-/* Additional styles for the glowing effect */
+/* #region Additional styles for the glowing effect */
 .glow-on-hover {
     transition: transform 0.3s ease-in-out;
 }
@@ -183,7 +183,7 @@ transform: scale(1.05);
                         font-size: 24px;
                         padding-top: 20%;
                     }
-                    
+
                     .arrow
                     {
                         color: var(--primary-color);
@@ -355,7 +355,7 @@ transform: scale(1.05);
         {
             display: flex;
             align-items: center;
-            justify-content: center; /* horizontally center */
+            justify-content: center; 
             
             .work-image 
             {
@@ -417,8 +417,8 @@ transform: scale(1.05);
 
             .post-text-container
             {
-                max-height: 32em; /* Set the maximum height */
-                overflow-y: hidden; /* Hide overflow */
+                max-height: 32em;
+                overflow-y: hidden;
             }
 
             p {

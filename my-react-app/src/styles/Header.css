@@ -3,13 +3,9 @@
 {
     margin: 0 auto;
 }
-/* --- */
-
 
 .navbar
-{
-    /* ------ Main Button ----- */
-    
+{    
     .navbar-brand
     {
         font-size: 30px;
@@ -28,8 +24,6 @@
     {
         color: var(--primary-color);
     }
-
-    /* ------ Secondary Buttons ----- */
 
     .navbar-links 
     {

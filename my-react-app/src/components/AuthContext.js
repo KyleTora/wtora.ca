@@ -14,7 +14,6 @@ export const AuthProvider = ({ children }) => {
   const [authenticated, setAuthenticated] = useState(initialAuthState.authenticated);
 
   useEffect(() => {
-    // Check if user is already authenticated on mount
     const unsubscribe = auth.onAuthStateChanged(user => {
       if (user) {
         setAuthenticated(true);
@@ -23,7 +22,6 @@ export const AuthProvider = ({ children }) => {
       }
     });
 
-    // Cleanup subscription on unmount
     return () => unsubscribe();
   }, []);
 

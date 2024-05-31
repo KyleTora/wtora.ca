@@ -4,7 +4,6 @@ import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { useAuth } from './AuthContext';
 import '../styles/NewBlogPost.css';
 
-
 function CreateBlogPost() {
     const { isAuthenticated } = useAuth();
     const db = getFirestore();

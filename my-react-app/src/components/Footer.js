@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faPhone, faEnvelope, faCircle} from '@fortawesome/free-solid-svg-icons';
 
-
 function Footer() {
   const { authenticated, logout } = useContext(AuthContext); 
 
