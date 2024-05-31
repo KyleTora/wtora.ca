@@ -3,9 +3,8 @@ import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 import { getPerformance } from "firebase/performance";
 
-
 const firebaseConfig = {
-  apiKey: "AIzaSyBHNkHFjsCPhxEl0RW7YP7xCaS8nGkRZMg",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "wtora-3b8e4.firebaseapp.com",
   projectId: "wtora-3b8e4",
   storageBucket: "wtora-3b8e4.appspot.com",
