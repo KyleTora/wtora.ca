@@ -7,7 +7,7 @@ admin.initializeApp();
 
 const gmailEmail = functions.config().gmail.email;
 const gmailPassword = functions.config().gmail.password;
-
+//test
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
