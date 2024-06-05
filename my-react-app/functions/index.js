@@ -7,7 +7,9 @@ admin.initializeApp();
 
 const gmailEmail = functions.config().gmail.email;
 const gmailPassword = functions.config().gmail.password;
-//test
+const wtoraEmail  = process.env.REACT_APP_EMAIL;
+const wtoraPassword  = process.env.REACT_APP_Password;
+
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
