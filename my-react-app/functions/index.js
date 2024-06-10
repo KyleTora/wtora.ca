@@ -5,7 +5,7 @@ const cors = require('cors')({ origin: true });
 
 admin.initializeApp();
 
-const wtoraEmail = functions.config().gmail.email;
+const wtoraEmail = functions.config().gmail.email; //email.address
 const wtoraPassword = functions.config().gmail.password;
 
 const transporter = nodemailer.createTransport({
