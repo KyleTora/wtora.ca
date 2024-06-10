@@ -5,17 +5,21 @@ const cors = require('cors')({ origin: true });
 
 admin.initializeApp();
 
-const gmailEmail = functions.config().gmail.email;
-const gmailPassword = functions.config().gmail.password;
-const wtoraEmail  = process.env.REACT_APP_EMAIL;
-const wtoraPassword  = process.env.REACT_APP_Password;
+const wtoraEmail = functions.config().gmail.email;
+const wtoraPassword = functions.config().gmail.password;
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
+  //host: 'smtp-mail.outlook.com',
+  //port: 587,
+  //secure: false,
   auth: {
-    user: gmailEmail,
-    pass: gmailPassword,
-  },
+    user: wtoraEmail,
+    pass: wtoraPassword,
+  // },
+  // tls: {
+  //   ciphers: 'SSLv3'
+  }
 });
 
 exports.sendEmail = functions.https.onRequest((req, res) => {
@@ -28,12 +32,11 @@ exports.sendEmail = functions.https.onRequest((req, res) => {
 
     const mailOptions = {
       from: email,
-      to: gmailEmail,
-      subject: 'New Message from WTora.ca Contact Form',
+      to: "kyletora1@gmail.com",
+      subject: 'New Message from WTora.ca Contact Forms',
       text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nCompany: ${company}\n\nEmail Body: \n\n${message}`
     };
-
-
+    console.log(mailOptions);
     try {
       await transporter.sendMail(mailOptions);
       return res.status(200).send('Email sent successfully');
