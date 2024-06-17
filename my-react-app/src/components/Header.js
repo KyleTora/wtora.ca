@@ -10,7 +10,7 @@ function Header() {
   return (
   <Navbar class="navbar" bg="white" expand="md">
     <div className="container">
-      <Navbar.Brand href="/" className="navbar-brand ">        
+      <Navbar.Brand href="/" className="navbar-brand" alt="Home">        
       <img className="logo-image" src={logo}/>
       </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

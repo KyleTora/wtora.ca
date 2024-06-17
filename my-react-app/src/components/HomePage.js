@@ -102,9 +102,14 @@ function HomePage() {
       <Helmet>
         <title>Walter Tora Consulting</title>
         <meta name="description" content="Walter Tora Consulting" />
+        <meta name="keywords" content="IT consulting, wtora, walter tora, consulting" />
+        <meta property="og:title" content="Walter Tora Consulting" />
+        <meta property="og:description" content="IT consulting, wtora, walter tora, consulting" />
+        <meta property="og:type" content="website" />
       </Helmet>
+      
 
-      <div className="hero-image" style={{ backgroundImage: `url(${heroImg})` }}>
+      <div className="hero-image" style={{ backgroundImage: `url(${heroImg})` }} aria-label="hero image">
         <div className="container">
           <div className="hero-section">
             <div className="hero-text">
