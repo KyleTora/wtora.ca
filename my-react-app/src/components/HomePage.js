@@ -98,7 +98,6 @@ function HomePage() {
 
   return (
     <div className="home-container">
-      {/* Helmet for SEO metadata */}
       <Helmet>
         <title>Walter Tora Consulting</title>
         <meta name="description" content="Walter Tora Consulting" />
