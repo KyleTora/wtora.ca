@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async'; // Import Helmet
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/HomePage.css';
 import ContactSection from './ContactSection';
@@ -61,7 +62,6 @@ function HomePage() {
   };
 
   useEffect(() => {
-    document.title = "Home";
 
     const fetchLatestPost = async (postId) => {
       const postRef = doc(db, 'blogs', postId);
@@ -85,17 +85,25 @@ function HomePage() {
 
         latestPost.date = formattedDate;
         setPost(latestPost);
+
+       
       } else {
         console.log('No such document!');
       }
     };
 
-    // update later - so it grabs the latest one.
+    // Update later - so it grabs the latest one.
     fetchLatestPost('V5bZuPZZkyGgTjDOAusl');
   }, []);
 
   return (
     <div className="home-container">
+      {/* Helmet for SEO metadata */}
+      <Helmet>
+        <title>Walter Tora Consulting</title>
+        <meta name="description" content="Walter Tora Consulting" />
+      </Helmet>
+
       <div className="hero-image" style={{ backgroundImage: `url(${heroImg})` }}>
         <div className="container">
           <div className="hero-section">
@@ -147,8 +155,8 @@ function HomePage() {
             <div className='section-title'>
               <h2 className='title-text'>Why choose us?</h2>
             </div>
-            <p className='text-paragraph'>We have consulted to many small and mid sized organizations to modernize and transform their IT systems and infrastructure.</p>
-            <p className='text-paragraph'>Our focus is to deliver business value and provide unbiased advice that based on experiences in multiple industries and technology platforms.</p>
+            <p className='text-paragraph'>We have consulted with many small and mid-sized organizations to modernize and transform their IT systems and infrastructure.</p>
+            <p className='text-paragraph'>Our focus is to deliver business value and provide unbiased advice based on experiences in multiple industries and technology platforms.</p>
             <div className='text-center fade-in-left'>
               <a href="/services" className="btn work-button">Learn More</a>
             </div>
@@ -178,12 +186,11 @@ function HomePage() {
               <p>Loading latest post...</p>
             )}
           </div>
-          <div className='text-center fade-in-left t'>
-          <a href={`/blog/${post ? post.id : ''}`} className="btn blog-button">Read The Blog</a>
+          <div className='text-center fade-in-left'>
+            <a href={`/blog/${post ? post.id : ''}`} className="btn blog-button">Read The Blog</a>
           </div>
         </div>
       </div>
-
     </div>
   );
 }

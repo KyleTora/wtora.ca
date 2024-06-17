@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import '../styles/BlogPost.css';
 import { Link } from 'react-router-dom';
 import ContactSection from './ContactSection';
@@ -30,7 +31,6 @@ function BlogPage() {
                     });
                     postData.date = formattedDate;
                     setPost(postData);
-                    document.title = postData.title;
                 } else {
                     console.error('Blog post not found');
                 }
@@ -59,7 +59,6 @@ function BlogPage() {
     }, [id]);
 
     if (!post) {
-
         return (
             <div className='blog-post-container'>
                 <div className='post-banner'>
@@ -73,6 +72,14 @@ function BlogPage() {
 
     return (
         <div className='blog-post-container'>
+            <Helmet>
+                <title>{post.title}</title>
+                <meta name="description" content={post.heading} />
+                <meta name="keywords" content="blog, articles, posts, featured" />
+                <meta property="og:title" content={post.title} />
+                <meta property="og:description" content={post.heading} />
+                <meta property="og:type" content="article" />
+            </Helmet>
             <div className='post-banner'>
                 <div className='container'>
                     <h2 className="post-title">{post.title}</h2>
