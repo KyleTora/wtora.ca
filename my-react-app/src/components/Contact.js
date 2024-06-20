@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Contact.css';
+import { Helmet } from 'react-helmet';
 
 function ContactPage() {
   const [messageSent, setMessageSent] = useState(false);
@@ -36,6 +37,13 @@ function ContactPage() {
 
   return (
     <div className="contact-container">
+      <Helmet>
+        <meta name="description" content="Walter Tora Consulting - Contact" />
+        <meta name="keywords" content="IT consulting, wtora, walter tora, contact, consulting services, erp, project management, software development, data and analytics" />
+        <meta property="og:title" content="Walter Tora Consulting - Contact" />
+        <meta property="og:description" content="IT consulting, wtora, walter tora, contact, consulting services, erp, project management, software development, data and analytics" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <div className="container row">
       {messageSent && <p className="message-sent">Email has been sent!</p>}
         <div className="col-12 col-md-6 mx-auto">

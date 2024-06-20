@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async'; // Import Helmet
+import { Helmet } from 'react-helmet'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/HomePage.css';
 import ContactSection from './ContactSection';
@@ -101,13 +101,12 @@ function HomePage() {
       <Helmet>
         <title>Walter Tora Consulting</title>
         <meta name="description" content="Walter Tora Consulting" />
-        <meta name="keywords" content="IT consulting, wtora, walter tora, consulting" />
-        <meta property="og:title" content="Walter Tora Consulting" />
-        <meta property="og:description" content="IT consulting, wtora, walter tora, consulting" />
+        <meta name="keywords" content="IT consulting, wtora, walter tora, consulting, erp, project management, software development, data and analytics" />
+        <meta property="og:title" content="Walter Tora Consultin" />
+        <meta property="og:description" content="IT consulting, wtora, walter tora, consulting services, erp, project management, software development, data and analytics" />
         <meta property="og:type" content="website" />
       </Helmet>
-      
-
+    
       <div className="hero-image" style={{ backgroundImage: `url(${heroImg})` }} aria-label="hero image">
         <div className="container">
           <div className="hero-section">

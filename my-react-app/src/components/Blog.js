@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import '../styles/Blog.css';
+import { Helmet } from 'react-helmet';
 import ContactSection from './ContactSection';
 import { AuthContext } from './AuthContext';
 import heroImg from '../images/background-dark.jpg';
@@ -62,6 +63,13 @@ function BlogPage() {
 
     return (
         <div className="blog-container">
+            <Helmet>
+                <meta name="description" content="Walter Tora Consulting - Blog" />
+                <meta name="keywords" content="IT consulting, wtora, walter tora, blog, IT blog, consulting services, erp, project management, software development, data and analytics" />
+                <meta property="og:title" content="Walter Tora Consulting - Blog" />
+                <meta property="og:description" content="IT consulting, wtora, walter tora, blog, IT blog, consulting services, erp, project management, software development, data and analytics" />
+                <meta property="og:type" content="website" />
+            </Helmet>
             <div className="hero-image" style={{ backgroundImage: `url(${heroImg})` }}>
                 <div className='container'>
                     <div className="hero-section">

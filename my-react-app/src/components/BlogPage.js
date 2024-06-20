@@ -29,6 +29,7 @@ function BlogPage() {
                         day: 'numeric',
                         year: 'numeric',
                     });
+                    
                     postData.date = formattedDate;
                     setPost(postData);
                 } else {
@@ -74,10 +75,10 @@ function BlogPage() {
         <div className='blog-post-container'>
             <Helmet>
                 <title>{post.title}</title>
-                <meta name="description" content={post.heading} />
+                <meta name="description" content={post.author + " - " + post.heading}/>
                 <meta name="keywords" content="blog, articles, posts, featured" />
                 <meta property="og:title" content={post.title} />
-                <meta property="og:description" content={post.heading} />
+                <meta property="og:description" content={post.author + " - " + post.heading} />
                 <meta property="og:type" content="article" />
             </Helmet>
             <div className='post-banner'>

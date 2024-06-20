@@ -7,6 +7,7 @@ import hero from '../images/hero-image.jpg'
 import heroHex from '../images/hero-hex.jpg'
 import code from '../images/services-code.jpg'
 import { useLocation } from 'react-router-dom'
+import { Helmet } from 'react-helmet';
 
 function Capabilities() {
   const location = useLocation();
@@ -32,6 +33,13 @@ function Capabilities() {
 
   return (
     <div className="capability-container">
+      <Helmet>
+        <meta name="description" content="Walter Tora Consulting - Services" />
+        <meta name="keywords" content="IT consulting, wtora, walter tora, consulting services, erp, project management, software development, data and analytics" />
+        <meta property="og:title" content="Walter Tora Consulting - Services" />
+        <meta property="og:description" content="IT consulting, wtora, walter tora, consulting services, erp, project management, software development, data and analytics" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <div className="hero-image" style={{ backgroundImage: `url(${heroHex})` }}>
         <div className='container'>
           <div className="hero-section">
