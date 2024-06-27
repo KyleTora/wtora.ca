@@ -4,7 +4,7 @@ import { AuthContext } from './AuthContext';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faPhone, faEnvelope, faCircle} from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faEnvelope, faCircle, faNoteSticky} from '@fortawesome/free-solid-svg-icons';
 
 function Footer() {
   const { authenticated, logout } = useContext(AuthContext); 
@@ -40,7 +40,9 @@ function Footer() {
           </div>
           <div className="footer-block col-md-6 col-lg-3 col-12">
             <h4 className='footer-title'>Contact</h4>
-    
+            <a href="/contact" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faNoteSticky} className='social-icon ' /><span>Contact Form</span>
+            </a><br />
             <a href="https://www.linkedin.com/in/waltertora" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faLinkedin} className='social-icon ' /><span>LinkedIn</span>
             </a><br />
