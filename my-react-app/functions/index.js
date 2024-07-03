@@ -5,20 +5,14 @@ const cors = require('cors')({ origin: true });
 
 admin.initializeApp();
 
-const wtoraEmail = functions.config().gmail.email; //email.address
+const wtoraEmail = functions.config().gmail.email;
 const wtoraPassword = functions.config().gmail.password;
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
-  //host: 'smtp-mail.outlook.com',
-  //port: 587,
-  //secure: false,
   auth: {
     user: wtoraEmail,
     pass: wtoraPassword,
-  // },
-  // tls: {
-  //   ciphers: 'SSLv3'
   }
 });
 
@@ -31,9 +25,9 @@ exports.sendEmail = functions.https.onRequest((req, res) => {
     const { name, email, message, phone, company } = req.body;
 
     const mailOptions = {
-      from: email,
+      from: "WTora Contact Form",
       to: "kyletora1@gmail.com",
-      subject: 'New Message from WTora.ca Contact Forms',
+      subject: 'New Message from WTora Contact Forms',
       text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nCompany: ${company}\n\nEmail Body: \n\n${message}`
     };
     console.log(mailOptions);
