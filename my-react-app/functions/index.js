@@ -26,8 +26,8 @@ exports.sendEmail = functions.https.onRequest((req, res) => {
 
     const mailOptions = {
       from: "WTora Contact Form",
-      to: "kyletora1@gmail.com",
-      subject: 'New Message from WTora Contact Forms',
+      to: "kyle.tora@outlook.com",
+      subject: 'New Message from WTora Contact Form',
       text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nCompany: ${company}\n\nEmail Body: \n\n${message}`
     };
     console.log(mailOptions);
