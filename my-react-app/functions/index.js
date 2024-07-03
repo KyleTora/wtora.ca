@@ -30,7 +30,7 @@ exports.sendEmail = functions.https.onRequest((req, res) => {
       subject: 'New Message from WTora Contact Form',
       text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nCompany: ${company}\n\nEmail Body: \n\n${message}`
     };
-    console.log(mailOptions);
+
     try {
       await transporter.sendMail(mailOptions);
       return res.status(200).send('Email sent successfully');
